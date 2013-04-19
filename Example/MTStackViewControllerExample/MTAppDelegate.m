@@ -8,8 +8,8 @@
 
 #import "MTAppDelegate.h"
 
-#import "MTStackViewController.h"
-#import "MTMenuViewController.h"
+#import "APStackViewController.h"
+#import "APMenuViewController.h"
 
 @implementation MTAppDelegate
 
@@ -18,14 +18,13 @@
     [self setWindow:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
     [[self window] setBackgroundColor:[UIColor whiteColor]];
 
-    MTStackViewController *stackViewController = [[MTStackViewController alloc] initWithNibName:nil bundle:nil];
+    APStackViewController *stackViewController = [[APStackViewController alloc] init];
     [stackViewController setAnimationDurationProportionalToPosition:YES];
     
-    MTMenuViewController *menuViewController = [[MTMenuViewController alloc] initWithNibName:nil bundle:nil];
-    UINavigationController *menuNavigationController = [[UINavigationController alloc] initWithRootViewController:menuViewController];
-    [stackViewController setLeftViewController:menuNavigationController];
+    APMenuViewController *menuViewController = [[APMenuViewController alloc] init];
+    [stackViewController setLeftViewController:menuViewController];
     
-    UINavigationController *contentNavigationController = [UINavigationController new];
+    UINavigationController *contentNavigationController = [[UINavigationController alloc] init];
     [stackViewController setContentViewController:contentNavigationController];
     
     [[self window] setRootViewController:stackViewController];

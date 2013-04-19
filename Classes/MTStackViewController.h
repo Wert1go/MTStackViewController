@@ -30,6 +30,11 @@
 
 #import <UIKit/UIKit.h>
 
+enum ButtonState {
+    INACTIVE = 0,
+    ACTIVE = 1
+    };
+
 @class MTStackViewController;
 @class MTStackContainerView;
 @class MTStackContentContainerView;
@@ -74,7 +79,7 @@
 // How far the content controller's X coordinate should be from point 0.0f (left to right)
 // before the left controller should be considered revealed. This will automatically be
 // converted for the right controller.
-// Default: 80% of [UIScreen mainScreen]'s width.
+// Default: 280 point
 @property (nonatomic, assign) CGFloat slideOffset;
 
 // How far the left header's x origin should be before the parallax animation is started
@@ -206,6 +211,10 @@
 - (void)toggleRightViewController:(id)sender event:(UIEvent *)event;
 - (void)toggleRightViewControllerAnimated:(BOOL)animated;
 - (void)toggleRightViewController;
+
+- (void) setActiveViewControllerAndHideMenu: (UIViewController *) controller;
+
+- (UIBarButtonItem *) getMenuButtonInState: (enum ButtonState) state;
 
 @end
 

@@ -24,6 +24,7 @@
 // THE SOFTWARE.
 
 #import "MTStackViewController.h"
+#import "APStackViewControllerConfig.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import <objc/runtime.h>
@@ -139,6 +140,7 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     CGRect _initialContentControllerFrame;
     UITapGestureRecognizer *_tapGestureRecognizer;
 }
+
 @end
 
 @interface MTStackViewController () <UIGestureRecognizerDelegate>
@@ -172,20 +174,31 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     return self;
 }
 
+- (id)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+		[self setup];
+    }
+    return self;
+}
+
 - (void)setup
 {
     CGRect screenBounds = [self screenBounds];
     
-    _swipeVelocity = 500.0f;
+    _swipeVelocity = kDefaultSwipeVelocity;
     
     _leftViewControllerEnabled = YES;
     _rightViewControllerEnabled = NO;
     _leftControllerParallaxEnabled = YES;
     _rightControllerParallaxEnabled = YES;
-    _leftSnapThreshold = screenBounds.size.width / 2.0f;
+    _leftSnapThreshold = kSlideOutMenuWidth - kSlideOutMenuWidth/4;
     _rasterizesViewsDuringAnimation = YES;
     
-    [self setSlideOffset:roundf(screenBounds.size.width * 0.8f)];
+    [self setSlideOffset:kSlideOutMenuWidth];
     [self setHeaderSlideOffset:[self slideOffset] * 0.5];
     
     _leftContainerView = [[MTStackContainerView alloc] initWithFrame:screenBounds];
@@ -588,6 +601,8 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     if (contentViewFrameX > [self slideOffset])
     {
         contentViewFrameX = [self slideOffset];
+    } else if (contentViewFrameX < 0) {
+        contentViewFrameX = 1.0f;
     }
     
     if (
@@ -751,6 +766,7 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
                                  [[self delegate] stackViewController:self didRevealLeftViewController:[self leftViewController]];
                              }
                              
+                             [self setMenuButtonToState:ACTIVE];
                          }];
     }
 }
@@ -819,16 +835,19 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
 - (void)hideLeftViewController
 {
     [self hideLeftViewControllerAnimated:YES];
+    
 }
 
 - (void)hideLeftViewControllerAnimated:(BOOL)animated
 {
     [self hideLeftOrRightViewControllerAnimated:animated];
+    [self setMenuButtonToState:INACTIVE];
 }
 
 - (void)hideRightViewController
 {
     [self hideRightViewControllerAnimated:YES];
+    
 }
 
 - (void)hideRightViewControllerAnimated:(BOOL)animated
@@ -941,6 +960,7 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     else
     {
         [self revealLeftViewControllerAnimated:animated];
+        
     }
 }
 
@@ -1149,6 +1169,27 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
 - (BOOL)shouldAutorotate
 {
     return NO;
+}
+
+#pragma Additions
+
+- (void) setActiveViewControllerAndHideMenu:(UIViewController *)controller {
+    UINavigationController *navigationController = (UINavigationController *)[self contentViewController];
+    [navigationController setViewControllers:@[controller]];
+    [self hideLeftViewController];
+}
+
+- (void) setMenuButtonToState: (enum ButtonState) state {
+    UINavigationController *navigationController = (UINavigationController *)[self contentViewController];
+    [navigationController.topViewController.navigationItem setLeftBarButtonItem:[self getMenuButtonInState:state]];
+}
+
+//Abstaract methods
+
+- (UIBarButtonItem *) getMenuButtonInState:(enum ButtonState)state {
+    [NSException raise:NSInternalInconsistencyException
+                format:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)];
+    return nil;
 }
 
 @end

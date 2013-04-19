@@ -17,7 +17,16 @@
 		22F4AFE316BAECB6000384FD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F4AFE216BAECB6000384FD /* Default@2x.png */; };
 		22F4AFE516BAECB6000384FD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F4AFE416BAECB6000384FD /* Default-568h@2x.png */; };
 		22F4AFEF16BAED2B000384FD /* MTStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4AFEE16BAED2B000384FD /* MTStackViewController.m */; };
-		22F4AFF916BAEDB0000384FD /* MTMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4AFF816BAEDB0000384FD /* MTMenuViewController.m */; };
+		FDC283011721423D000EC65A /* APStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC283001721423D000EC65A /* APStackViewController.m */; };
+		FDC2830417214397000EC65A /* APMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC2830317214397000EC65A /* APMenuViewController.m */; };
+		FDC2832B172149E1000EC65A /* AMSlideTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC28324172149A7000EC65A /* AMSlideTableCell.m */; };
+		FDC2832C172149E1000EC65A /* AMSlideTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC28326172149AF000EC65A /* AMSlideTableHeader.m */; };
+		FDC2832D172149E1000EC65A /* APMenuTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC28328172149BF000EC65A /* APMenuTableCell.m */; };
+		FDC2832E172149E1000EC65A /* APMenuTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC2832A172149D3000EC65A /* APMenuTableHeader.m */; };
+		FDC2833117214A13000EC65A /* MTMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC2833017214A13000EC65A /* MTMenuViewController.m */; };
+		FDC2833517214F0C000EC65A /* slideout_button_active.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC2833317214F0C000EC65A /* slideout_button_active.png */; };
+		FDC2833617214F0C000EC65A /* slideout_button_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC2833417214F0C000EC65A /* slideout_button_inactive.png */; };
+		FDC2833C17215763000EC65A /* APMetaEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC2833B17215762000EC65A /* APMetaEntity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +45,28 @@
 		22F4AFE416BAECB6000384FD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		22F4AFED16BAED2B000384FD /* MTStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTStackViewController.h; path = ../../Classes/MTStackViewController.h; sourceTree = "<group>"; };
 		22F4AFEE16BAED2B000384FD /* MTStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTStackViewController.m; path = ../../Classes/MTStackViewController.m; sourceTree = "<group>"; };
-		22F4AFF716BAEDB0000384FD /* MTMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMenuViewController.h; sourceTree = "<group>"; };
-		22F4AFF816BAEDB0000384FD /* MTMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMenuViewController.m; sourceTree = "<group>"; };
+		FDC282F617213278000EC65A /* APStackViewControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APStackViewControllerConfig.h; path = ../../Classes/APStackViewControllerConfig.h; sourceTree = "<group>"; };
+		FDC282F917213E46000EC65A /* APMenuViewControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APMenuViewControllerConfig.h; path = ../../Classes/APMenuViewControllerConfig.h; sourceTree = "<group>"; };
+		FDC282FF1721423D000EC65A /* APStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APStackViewController.h; path = ../../Classes/APStackViewController.h; sourceTree = "<group>"; };
+		FDC283001721423D000EC65A /* APStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APStackViewController.m; path = ../../Classes/APStackViewController.m; sourceTree = "<group>"; };
+		FDC2830217214397000EC65A /* APMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APMenuViewController.h; path = ../../Classes/APMenuViewController.h; sourceTree = "<group>"; };
+		FDC2830317214397000EC65A /* APMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APMenuViewController.m; path = ../../Classes/APMenuViewController.m; sourceTree = "<group>"; };
+		FDC283171721489A000EC65A /* APMenuTableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APMenuTableHeader.h; path = ../../Classes/APMenuTableHeader.h; sourceTree = "<group>"; };
+		FDC283181721489A000EC65A /* APMenuTableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = APMenuTableHeader.m; path = ../../Classes/APMenuTableHeader.m; sourceTree = "<group>"; };
+		FDC28323172149A5000EC65A /* AMSlideTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSlideTableCell.h; path = ../../Classes/AMSlideTableCell.h; sourceTree = "<group>"; };
+		FDC28324172149A7000EC65A /* AMSlideTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSlideTableCell.m; path = ../../Classes/AMSlideTableCell.m; sourceTree = "<group>"; };
+		FDC28325172149AA000EC65A /* AMSlideTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSlideTableHeader.h; path = ../../Classes/AMSlideTableHeader.h; sourceTree = "<group>"; };
+		FDC28326172149AF000EC65A /* AMSlideTableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSlideTableHeader.m; path = ../../Classes/AMSlideTableHeader.m; sourceTree = "<group>"; };
+		FDC28327172149B6000EC65A /* APMenuTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APMenuTableCell.h; path = ../../Classes/APMenuTableCell.h; sourceTree = "<group>"; };
+		FDC28328172149BF000EC65A /* APMenuTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APMenuTableCell.m; path = ../../Classes/APMenuTableCell.m; sourceTree = "<group>"; };
+		FDC28329172149C9000EC65A /* APMenuTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APMenuTableHeader.h; path = ../../Classes/APMenuTableHeader.h; sourceTree = "<group>"; };
+		FDC2832A172149D3000EC65A /* APMenuTableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APMenuTableHeader.m; path = ../../Classes/APMenuTableHeader.m; sourceTree = "<group>"; };
+		FDC2832F17214A12000EC65A /* MTMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTMenuViewController.h; path = ../../Classes/MTMenuViewController.h; sourceTree = "<group>"; };
+		FDC2833017214A13000EC65A /* MTMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTMenuViewController.m; path = ../../Classes/MTMenuViewController.m; sourceTree = "<group>"; };
+		FDC2833317214F0C000EC65A /* slideout_button_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slideout_button_active.png; sourceTree = "<group>"; };
+		FDC2833417214F0C000EC65A /* slideout_button_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slideout_button_inactive.png; sourceTree = "<group>"; };
+		FDC2833A17215761000EC65A /* APMetaEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APMetaEntity.h; path = ../../Classes/APMetaEntity.h; sourceTree = "<group>"; };
+		FDC2833B17215762000EC65A /* APMetaEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APMetaEntity.m; path = ../../Classes/APMetaEntity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +113,7 @@
 		22F4AFD416BAECB6000384FD /* MTStackViewControllerExample */ = {
 			isa = PBXGroup;
 			children = (
+				FDC2833217214EF7000EC65A /* Resources */,
 				22F4AFF116BAED76000384FD /* MTMenuViewController */,
 				22F4AFEC16BAED16000384FD /* MTStackViewController */,
 				22F4AFEB16BAED05000384FD /* MTAppDelegate */,
@@ -118,8 +148,11 @@
 		22F4AFEC16BAED16000384FD /* MTStackViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FDC282F617213278000EC65A /* APStackViewControllerConfig.h */,
 				22F4AFED16BAED2B000384FD /* MTStackViewController.h */,
 				22F4AFEE16BAED2B000384FD /* MTStackViewController.m */,
+				FDC282FF1721423D000EC65A /* APStackViewController.h */,
+				FDC283001721423D000EC65A /* APStackViewController.m */,
 			);
 			name = MTStackViewController;
 			sourceTree = "<group>";
@@ -127,10 +160,35 @@
 		22F4AFF116BAED76000384FD /* MTMenuViewController */ = {
 			isa = PBXGroup;
 			children = (
-				22F4AFF716BAEDB0000384FD /* MTMenuViewController.h */,
-				22F4AFF816BAEDB0000384FD /* MTMenuViewController.m */,
+				FDC28323172149A5000EC65A /* AMSlideTableCell.h */,
+				FDC28324172149A7000EC65A /* AMSlideTableCell.m */,
+				FDC28325172149AA000EC65A /* AMSlideTableHeader.h */,
+				FDC28326172149AF000EC65A /* AMSlideTableHeader.m */,
+				FDC28327172149B6000EC65A /* APMenuTableCell.h */,
+				FDC28328172149BF000EC65A /* APMenuTableCell.m */,
+				FDC28329172149C9000EC65A /* APMenuTableHeader.h */,
+				FDC2832A172149D3000EC65A /* APMenuTableHeader.m */,
+				FDC282F917213E46000EC65A /* APMenuViewControllerConfig.h */,
+				FDC2830217214397000EC65A /* APMenuViewController.h */,
+				FDC2830317214397000EC65A /* APMenuViewController.m */,
+				FDC283171721489A000EC65A /* APMenuTableHeader.h */,
+				FDC283181721489A000EC65A /* APMenuTableHeader.m */,
+				FDC2832F17214A12000EC65A /* MTMenuViewController.h */,
+				FDC2833017214A13000EC65A /* MTMenuViewController.m */,
+				FDC2833A17215761000EC65A /* APMetaEntity.h */,
+				FDC2833B17215762000EC65A /* APMetaEntity.m */,
 			);
 			name = MTMenuViewController;
+			sourceTree = "<group>";
+		};
+		FDC2833217214EF7000EC65A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FDC2833317214F0C000EC65A /* slideout_button_active.png */,
+				FDC2833417214F0C000EC65A /* slideout_button_inactive.png */,
+			);
+			name = Resources;
+			path = ../../Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +247,8 @@
 				22F4AFE116BAECB6000384FD /* Default.png in Resources */,
 				22F4AFE316BAECB6000384FD /* Default@2x.png in Resources */,
 				22F4AFE516BAECB6000384FD /* Default-568h@2x.png in Resources */,
+				FDC2833517214F0C000EC65A /* slideout_button_active.png in Resources */,
+				FDC2833617214F0C000EC65A /* slideout_button_inactive.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +262,14 @@
 				22F4AFDB16BAECB6000384FD /* main.m in Sources */,
 				22F4AFDF16BAECB6000384FD /* MTAppDelegate.m in Sources */,
 				22F4AFEF16BAED2B000384FD /* MTStackViewController.m in Sources */,
-				22F4AFF916BAEDB0000384FD /* MTMenuViewController.m in Sources */,
+				FDC283011721423D000EC65A /* APStackViewController.m in Sources */,
+				FDC2830417214397000EC65A /* APMenuViewController.m in Sources */,
+				FDC2832B172149E1000EC65A /* AMSlideTableCell.m in Sources */,
+				FDC2832C172149E1000EC65A /* AMSlideTableHeader.m in Sources */,
+				FDC2832D172149E1000EC65A /* APMenuTableCell.m in Sources */,
+				FDC2832E172149E1000EC65A /* APMenuTableHeader.m in Sources */,
+				FDC2833117214A13000EC65A /* MTMenuViewController.m in Sources */,
+				FDC2833C17215763000EC65A /* APMetaEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +349,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTStackViewControllerExample/MTStackViewControllerExample-Prefix.pch";
 				INFOPLIST_FILE = "MTStackViewControllerExample/MTStackViewControllerExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -293,7 +362,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTStackViewControllerExample/MTStackViewControllerExample-Prefix.pch";
 				INFOPLIST_FILE = "MTStackViewControllerExample/MTStackViewControllerExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
