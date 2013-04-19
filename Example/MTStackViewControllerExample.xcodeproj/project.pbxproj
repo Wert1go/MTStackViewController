@@ -51,8 +51,6 @@
 		FDC283001721423D000EC65A /* APStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APStackViewController.m; path = ../../Classes/APStackViewController.m; sourceTree = "<group>"; };
 		FDC2830217214397000EC65A /* APMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APMenuViewController.h; path = ../../Classes/APMenuViewController.h; sourceTree = "<group>"; };
 		FDC2830317214397000EC65A /* APMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APMenuViewController.m; path = ../../Classes/APMenuViewController.m; sourceTree = "<group>"; };
-		FDC283171721489A000EC65A /* APMenuTableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APMenuTableHeader.h; path = ../../Classes/APMenuTableHeader.h; sourceTree = "<group>"; };
-		FDC283181721489A000EC65A /* APMenuTableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = APMenuTableHeader.m; path = ../../Classes/APMenuTableHeader.m; sourceTree = "<group>"; };
 		FDC28323172149A5000EC65A /* AMSlideTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSlideTableCell.h; path = ../../Classes/AMSlideTableCell.h; sourceTree = "<group>"; };
 		FDC28324172149A7000EC65A /* AMSlideTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSlideTableCell.m; path = ../../Classes/AMSlideTableCell.m; sourceTree = "<group>"; };
 		FDC28325172149AA000EC65A /* AMSlideTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSlideTableHeader.h; path = ../../Classes/AMSlideTableHeader.h; sourceTree = "<group>"; };
@@ -171,8 +169,6 @@
 				FDC282F917213E46000EC65A /* APMenuViewControllerConfig.h */,
 				FDC2830217214397000EC65A /* APMenuViewController.h */,
 				FDC2830317214397000EC65A /* APMenuViewController.m */,
-				FDC283171721489A000EC65A /* APMenuTableHeader.h */,
-				FDC283181721489A000EC65A /* APMenuTableHeader.m */,
 				FDC2832F17214A12000EC65A /* MTMenuViewController.h */,
 				FDC2833017214A13000EC65A /* MTMenuViewController.m */,
 				FDC2833A17215761000EC65A /* APMetaEntity.h */,
