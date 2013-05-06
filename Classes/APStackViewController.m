@@ -18,7 +18,7 @@
 {
     self = [super init];
     if (self) {
-        [self setNoSimultaneousPanningViewClasses:[NSArray arrayWithObjects:[UITableView class], [UIScrollView class], nil]];
+        
     }
     return self;
 }

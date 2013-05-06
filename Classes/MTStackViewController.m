@@ -275,14 +275,17 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
                                              CGRectGetWidth([view bounds]),
                                              CGRectGetHeight([view bounds]))];
     [view addSubview:_rightContainerView];
-    [_contentContainerView setFrame:[view bounds]];
+    
+    if (self.alwaysShowLeftMenu) {
+        [_contentContainerView setFrame:CGRectMake(0, 0, [view bounds].size.width - [self slideOffset], [view bounds].size.height)];
+    } else {
+        [_contentContainerView setFrame:[view bounds]];
+    }
+    
     [view addSubview:_contentContainerView];
     
     [self setView:view];
-    
-    if (self.alwaysShowLeftMenu) {
-        [self revealLeftViewControllerAnimated:NO];
-    }
+
 }
 
 #pragma mark - Accessors
@@ -504,7 +507,9 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
 
 - (void)tapGestureRecognizerDidTap:(UITapGestureRecognizer *)tapGestureRecognizer
 {
-    [self hideLeftViewController];
+    if (!self.alwaysShowLeftMenu) {
+        [self hideLeftViewController];
+    }
 }
 
 - (void)setContentViewController:(UIViewController *)contentViewController hideLeftViewController:(BOOL)hideLeftViewController animated:(BOOL)animated
@@ -765,7 +770,10 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
                                  [[_rightContainerView layer] setShouldRasterize:NO];
                              }
                              
-                             [self setContentViewUserInteractionEnabled:NO];
+                             if (!self.alwaysShowLeftMenu) {
+                                 [self setContentViewUserInteractionEnabled:NO];
+                             }
+                             
                              [_contentContainerView addGestureRecognizer:_tapGestureRecognizer];
                              
                              if ([[self delegate] respondsToSelector:@selector(stackViewController:didRevealLeftViewController:)])
@@ -1000,6 +1008,7 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
 
 - (void)setContentViewUserInteractionEnabled:(BOOL)userInteractionEnabled
 {
+
     UIViewController *contentViewController = [self contentViewController];
     if ([contentViewController isKindOfClass:[UINavigationController class]])
     {
@@ -1058,7 +1067,9 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
 {
     BOOL shouldPan = YES;
     
-    if ([self disableSwipeWhenContentNavigationControllerDrilledDown] &&
+    if (self.alwaysShowLeftMenu) {
+        shouldPan = NO;
+    } else if ([self disableSwipeWhenContentNavigationControllerDrilledDown] &&
         [_contentViewController isKindOfClass:[UINavigationController class]] &&
         [[(UINavigationController *)_contentViewController viewControllers] count] > 1)
     {
@@ -1186,6 +1197,12 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     
     if (!self.alwaysShowLeftMenu) {
         [self hideLeftViewController];
+    } else {
+        if (self.alwaysShowLeftMenu && !self.leftViewControllerVisible) {
+            [self revealLeftViewControllerAnimated:NO];
+            [self setContentViewUserInteractionEnabled:YES];
+        }
+        [self setContentViewUserInteractionEnabled:YES];
     }
 }
 
@@ -1209,12 +1226,11 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     
     self.disableSwipeWhenContentNavigationControllerDrilledDown = alwaysShowLeftMenu_;
     self.disablePanning = alwaysShowLeftMenu_;
+    _tapGestureRecognizer.enabled = NO;
 }
 
 - (void) setDisablePanning:(BOOL)disablePanning {
     _disablePanning = disablePanning;
-    
-    _tapGestureRecognizer.enabled = !disablePanning;
     _panGestureRecognizer.enabled = !disablePanning;
 }
 
