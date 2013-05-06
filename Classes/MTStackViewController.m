@@ -487,11 +487,14 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     
     for (Class class in [self noSimultaneousPanningViewClasses])
     {
+        
         if ([[otherGestureRecognizer view] isKindOfClass:class] || [[[otherGestureRecognizer view] superview] isKindOfClass:class])
         {
             shouldRecognize = NO;
         }
     }
+    
+    NSLog(@"shouldRecognize %d", shouldRecognize);
     
     return shouldRecognize;
 }

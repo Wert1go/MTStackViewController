@@ -15,10 +15,11 @@
 @synthesize badgeText;
 @synthesize icon;
 @synthesize action;
+@synthesize tag;
 
 @synthesize isActionType;
 
-- (id) initWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ {
+- (id) initWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tag:(NSInteger)tag_ {
     self = [super init];
     if (self) {
         self.isActionType = YES;
@@ -26,12 +27,13 @@
         self.titleText = title;
         self.badgeText = text;
         self.icon = icon_;
+        self.tag = tag_;
     }
     
     return self;
 }
 
-- (id) initWithController:(UIViewController *)controller_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ {
+- (id) initWithController:(UIViewController *)controller_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tag:(NSInteger)tag_{
     self = [super init];
     if (self) {
         self.isActionType = NO;
@@ -39,6 +41,7 @@
         self.titleText = title;
         self.badgeText = text;
         self.icon = icon_;
+        self.tag = tag_;
     }
     return self;
 }

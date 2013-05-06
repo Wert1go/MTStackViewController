@@ -14,12 +14,13 @@
 @property (nonatomic, strong) NSString *titleText;
 @property (nonatomic, strong) NSString *badgeText;
 @property (nonatomic, strong) UIImage *icon;
+@property (nonatomic, assign) NSInteger tag;
 @property (nonatomic, copy) void (^action)();
 
 @property (nonatomic, assign) BOOL isActionType;
 
-- (id) initWithController: (UIViewController *) controller_ titleText: (NSString *) title badgeText: (NSString *) text icon: (UIImage *) icon_;
+- (id) initWithController: (UIViewController *) controller_ titleText: (NSString *) title badgeText: (NSString *) text icon: (UIImage *) icon_ tag: (NSInteger) tag_;
 
-- (id) initWithAction: (void (^)()) action_ titleText: (NSString *) title badgeText: (NSString *) text icon: (UIImage *) icon_;
+- (id) initWithAction: (void (^)()) action_ titleText: (NSString *) title badgeText: (NSString *) text icon: (UIImage *) icon_ tag: (NSInteger) tag_;
 
 @end
