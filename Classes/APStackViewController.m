@@ -14,6 +14,15 @@
 
 @implementation APStackViewController
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self setNoSimultaneousPanningViewClasses:[NSArray arrayWithObjects:[UITableView class], [UIScrollView class], nil]];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
