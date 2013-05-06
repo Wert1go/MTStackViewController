@@ -188,6 +188,12 @@ enum ButtonState {
 
 @property (nonatomic, weak) id <MTStackViewControllerDelegate> delegate;
 
+// 
+// Default: NO
+@property (nonatomic, assign) BOOL alwaysShowLeftMenu;
+
+// Default: NO
+@property (nonatomic, assign) BOOL disablePanning;
 
 // Sets the contentViewController, and will optionally hide the left view controller if it is visible.
 // DEPRECATED - use setContentViewController:snapToContentViewController:animated:

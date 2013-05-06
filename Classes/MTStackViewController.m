@@ -149,6 +149,9 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
 
 @implementation MTStackViewController
 
+@synthesize alwaysShowLeftMenu = _alwaysShowLeftMenu;
+@synthesize disablePanning = _disablePanning;
+
 #pragma mark - UIViewController Overrides
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -276,6 +279,10 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     [view addSubview:_contentContainerView];
     
     [self setView:view];
+    
+    if (self.alwaysShowLeftMenu) {
+        [self revealLeftViewControllerAnimated:NO];
+    }
 }
 
 #pragma mark - Accessors
@@ -1176,12 +1183,17 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
 - (void) setActiveViewControllerAndHideMenu:(UIViewController *)controller {
     UINavigationController *navigationController = (UINavigationController *)[self contentViewController];
     [navigationController setViewControllers:@[controller]];
-    [self hideLeftViewController];
+    
+    if (!self.alwaysShowLeftMenu) {
+        [self hideLeftViewController];
+    }
 }
 
 - (void) setMenuButtonToState: (enum ButtonState) state {
-    UINavigationController *navigationController = (UINavigationController *)[self contentViewController];
-    [navigationController.topViewController.navigationItem setLeftBarButtonItem:[self getMenuButtonInState:state]];
+    if (!self.alwaysShowLeftMenu) {
+        UINavigationController *navigationController = (UINavigationController *)[self contentViewController];
+        [navigationController.topViewController.navigationItem setLeftBarButtonItem:[self getMenuButtonInState:state]];
+    }
 }
 
 //Abstaract methods
@@ -1190,6 +1202,19 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     [NSException raise:NSInternalInconsistencyException
                 format:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)];
     return nil;
+}
+
+- (void) setAlwaysShowLeftMenu:(BOOL)alwaysShowLeftMenu_ {
+    _alwaysShowLeftMenu = alwaysShowLeftMenu_;
+    
+    self.disableSwipeWhenContentNavigationControllerDrilledDown = alwaysShowLeftMenu_;
+    self.disablePanning = alwaysShowLeftMenu_;
+}
+
+- (void) setDisablePanning:(BOOL)disablePanning {
+    _disablePanning = disablePanning;
+    
+    _panGestureRecognizer.enabled = !disablePanning;
 }
 
 @end

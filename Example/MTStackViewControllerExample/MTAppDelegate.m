@@ -20,6 +20,7 @@
 
     APStackViewController *stackViewController = [[APStackViewController alloc] init];
     [stackViewController setAnimationDurationProportionalToPosition:YES];
+    [stackViewController setAlwaysShowLeftMenu:YES];
     
     APMenuViewController *menuViewController = [[APMenuViewController alloc] init];
     [stackViewController setLeftViewController:menuViewController];
