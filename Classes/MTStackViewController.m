@@ -493,9 +493,6 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
             shouldRecognize = NO;
         }
     }
-    
-    NSLog(@"shouldRecognize %d", shouldRecognize);
-    
     return shouldRecognize;
 }
 
