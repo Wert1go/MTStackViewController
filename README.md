@@ -14,9 +14,9 @@ Installation
 
 В терминале зайти в папку проекта, и выполнить следующую команду:
 
-git submodule add git://github.com/Wert1go/MTStackViewController.git Submodules/APStackViewController
+`git submodule add git://github.com/Wert1go/MTStackViewController.git Submodules/APStackViewController`
 
-После завершения загрузки, нужно зайти в папку APStackViewController, и добавить все файлы из папок Classes и Resources в проект.
+После завершения загрузки, нужно зайти в папку APStackViewController, и добавить все файлы из папок Classes и Resources в проект ('''Важно!''' Файлы нужно не копировать, а именно добавлять в проект)
 
 Все, можно работать.
 
@@ -45,10 +45,20 @@ For the time being, please refer to the [well documented header](https://github.
 
 Для поддержания возможности нормального обновления все кастомные изменения вносятся ТОЛЬКО в классы наследники.
 
+Добавленные свойства:
+
+* Режим работы с открытым меню - alwaysShowLeftMenu
+* Отключение свайпа - disablePanning
+
+
+Для того, чтобы отключить произвольное срабатывание открытия меню на классах наследниках UIScrollView нужно использовать свойство noSimultaneousPanningViewClasses. Например, для того, чтобы отключить срабатывания открытия для UITableView и UIScrollView нужно сделать так:
+
+`[stackViewController setNoSimultaneousPanningViewClasses:[NSArray arrayWithObjects:[UITableView class], [UIScrollView class], nil]];`
+
 Example
 =======
 
-Please see the [Example](https://github.com/willowtreeapps/MTStackViewController/tree/master/Example) directory for an example Xcode project that uses `MTStackViewController`.
+Please see the [Example](https://github.com/Wert1go/MTStackViewController/tree/master/Example) directory for an example Xcode project that uses `MTStackViewController`.
 
 License
 =======
