@@ -1214,6 +1214,7 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
 - (void) setDisablePanning:(BOOL)disablePanning {
     _disablePanning = disablePanning;
     
+    _tapGestureRecognizer.enabled = !disablePanning;
     _panGestureRecognizer.enabled = !disablePanning;
 }
 
