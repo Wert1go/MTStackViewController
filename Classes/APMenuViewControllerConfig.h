@@ -31,6 +31,11 @@
 #define kFontColor			[UIColor colorWithRed:0.49 green:0.50 blue:0.57 alpha:1.0]
 #define kFontShadowColor	[UIColor colorWithRed:0.21 green:0.15 blue:0.19 alpha:1.0]
 
+#define kCommonFontName @"HelveticaNeue"
+#define kCommonFontNameBold @"HelveticaNeue-Bold"
+
+#define kCommonFontSize 18.0f
+
 @interface APMenuViewControllerConfig : NSObject
 
 @end

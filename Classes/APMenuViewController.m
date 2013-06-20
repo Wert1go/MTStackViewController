@@ -16,8 +16,6 @@
 #import "APMenuTableCell.h"
 #import "APMenuTableHeader.h"
 
-#import "DesignConstants.h"
-
 static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 
 @interface APMenuViewController ()
@@ -138,7 +136,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     if (title) {
         APMenuTableHeader *header = [[APMenuTableHeader alloc] init];
         header.titleLabel.text = [title uppercaseString];
-        [header.titleLabel setFont:[UIFont fontWithName:INTERFACE_FONT_BOLD size:14.0f]];
+        [header.titleLabel setFont:[UIFont fontWithName:kCommonFontNameBold size:14.0f]];
         return header;
     }
     
@@ -177,7 +175,8 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     if (entity.icon) {
         [cell.imageView setImage:entity.icon];
     }
-    [cell.textLabel setFont:[UIFont fontWithName:INTERFACE_FONT size:COMMON_FONT_SIZE]];
+    
+    [cell.textLabel setFont:[UIFont fontWithName:kCommonFontName size:kCommonFontSize]];
     [cell.textLabel setText:entity.titleText];
     [cell setBadgeText:entity.badgeText];
 }

@@ -9,7 +9,6 @@
 #import "AMSlideTableCell.h"
 #import "APMenuViewControllerConfig.h"
 #import "APStackViewControllerConfig.h"
-#import "DesignConstants.h"
 
 #define kBadgeFont		[UIFont fontWithName:@"Helvetica" size:14]
 
@@ -31,7 +30,7 @@
 		self.textLabel.textColor = kCellFontColor;
 		self.textLabel.shadowOffset = CGSizeMake(0, 1);
 		self.textLabel.shadowColor = kFontShadowColor;
-		self.textLabel.font = [UIFont fontWithName:INTERFACE_FONT size:COMMON_FONT_SIZE];
+		self.textLabel.font = [UIFont fontWithName:kCommonFontName size:kCommonFontSize];
 		
         self.badge = [[UILabel alloc] init];
         self.labelBackground = [[UIImageView alloc] init];

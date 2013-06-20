@@ -17,6 +17,8 @@
 		22F4AFE316BAECB6000384FD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F4AFE216BAECB6000384FD /* Default@2x.png */; };
 		22F4AFE516BAECB6000384FD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F4AFE416BAECB6000384FD /* Default-568h@2x.png */; };
 		22F4AFEF16BAED2B000384FD /* MTStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4AFEE16BAED2B000384FD /* MTStackViewController.m */; };
+		8B0B35F31773279800239329 /* counter.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0B35F21773279800239329 /* counter.png */; };
+		8B0B35F6177327F400239329 /* APStackViewControllerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0B35F5177327F400239329 /* APStackViewControllerConfiguration.m */; };
 		FDC283011721423D000EC65A /* APStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC283001721423D000EC65A /* APStackViewController.m */; };
 		FDC2830417214397000EC65A /* APMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC2830317214397000EC65A /* APMenuViewController.m */; };
 		FDC2832B172149E1000EC65A /* AMSlideTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC28324172149A7000EC65A /* AMSlideTableCell.m */; };
@@ -45,6 +47,9 @@
 		22F4AFE416BAECB6000384FD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		22F4AFED16BAED2B000384FD /* MTStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTStackViewController.h; path = ../../Classes/MTStackViewController.h; sourceTree = "<group>"; };
 		22F4AFEE16BAED2B000384FD /* MTStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTStackViewController.m; path = ../../Classes/MTStackViewController.m; sourceTree = "<group>"; };
+		8B0B35F21773279800239329 /* counter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = counter.png; sourceTree = "<group>"; };
+		8B0B35F4177327F400239329 /* APStackViewControllerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APStackViewControllerConfiguration.h; path = ../../Classes/APStackViewControllerConfiguration.h; sourceTree = "<group>"; };
+		8B0B35F5177327F400239329 /* APStackViewControllerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APStackViewControllerConfiguration.m; path = ../../Classes/APStackViewControllerConfiguration.m; sourceTree = "<group>"; };
 		FDC282F617213278000EC65A /* APStackViewControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APStackViewControllerConfig.h; path = ../../Classes/APStackViewControllerConfig.h; sourceTree = "<group>"; };
 		FDC282F917213E46000EC65A /* APMenuViewControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APMenuViewControllerConfig.h; path = ../../Classes/APMenuViewControllerConfig.h; sourceTree = "<group>"; };
 		FDC282FF1721423D000EC65A /* APStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APStackViewController.h; path = ../../Classes/APStackViewController.h; sourceTree = "<group>"; };
@@ -151,6 +156,8 @@
 				22F4AFEE16BAED2B000384FD /* MTStackViewController.m */,
 				FDC282FF1721423D000EC65A /* APStackViewController.h */,
 				FDC283001721423D000EC65A /* APStackViewController.m */,
+				8B0B35F4177327F400239329 /* APStackViewControllerConfiguration.h */,
+				8B0B35F5177327F400239329 /* APStackViewControllerConfiguration.m */,
 			);
 			name = MTStackViewController;
 			sourceTree = "<group>";
@@ -180,6 +187,7 @@
 		FDC2833217214EF7000EC65A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8B0B35F21773279800239329 /* counter.png */,
 				FDC2833317214F0C000EC65A /* slideout_button_active.png */,
 				FDC2833417214F0C000EC65A /* slideout_button_inactive.png */,
 			);
@@ -245,6 +253,7 @@
 				22F4AFE516BAECB6000384FD /* Default-568h@2x.png in Resources */,
 				FDC2833517214F0C000EC65A /* slideout_button_active.png in Resources */,
 				FDC2833617214F0C000EC65A /* slideout_button_inactive.png in Resources */,
+				8B0B35F31773279800239329 /* counter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +275,7 @@
 				FDC2832E172149E1000EC65A /* APMenuTableHeader.m in Sources */,
 				FDC2833117214A13000EC65A /* MTMenuViewController.m in Sources */,
 				FDC2833C17215763000EC65A /* APMetaEntity.m in Sources */,
+				8B0B35F6177327F400239329 /* APStackViewControllerConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
