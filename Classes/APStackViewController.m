@@ -18,7 +18,6 @@
 {
     self = [super init];
     if (self) {
-        
     }
     return self;
 }
@@ -46,7 +45,7 @@
 }
 
 - (NSUInteger) supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskAllButUpsideDown;
+    return UIInterfaceOrientationMaskAll;
 }
 
 - (UIBarButtonItem *) getMenuButtonInState:(enum ButtonState) state {

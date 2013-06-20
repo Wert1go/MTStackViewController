@@ -9,8 +9,15 @@
 #import "AMSlideTableCell.h"
 #import "APMenuViewControllerConfig.h"
 #import "APStackViewControllerConfig.h"
+#import "DesignConstants.h"
 
-#define kBadgeFont		[UIFont fontWithName:@"Helvetica" size:12]
+#define kBadgeFont		[UIFont fontWithName:@"Helvetica" size:14]
+
+@interface AMSlideTableCell ()
+
+@property (nonatomic, strong) UIImageView *labelBackground;
+
+@end
 
 @implementation AMSlideTableCell
 
@@ -24,22 +31,26 @@
 		self.textLabel.textColor = kCellFontColor;
 		self.textLabel.shadowOffset = CGSizeMake(0, 1);
 		self.textLabel.shadowColor = kFontShadowColor;
-		self.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
+		self.textLabel.font = [UIFont fontWithName:INTERFACE_FONT size:COMMON_FONT_SIZE];
 		
+        self.badge = [[UILabel alloc] init];
+        self.labelBackground = [[UIImageView alloc] init];
+        [self.labelBackground setImage:[UIImage imageNamed:@"counter.png"]];
+        
+        [self.labelBackground addSubview:self.badge];
+        self.accessoryView = self.labelBackground;
         
         UIView* selection = [[UIView alloc] initWithFrame:self.frame];
         [selection setBackgroundColor:kSelectionBackground];
         self.selectedBackgroundView = selection;
-        
-		self.badge = [[UILabel alloc] init];
-		
-		[self addSubview:self.badge];
     }
     return self;
 }
 
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
+    
     float height = self.frame.size.height;
 	if (self.imageView.image) {
 		self.imageView.frame = CGRectMake(height/2 - 30/2, height/2 - 30/2, 30, 30);
@@ -53,13 +64,8 @@
 	self.badge.textColor = kCellFontColor;
 	self.badge.adjustsFontSizeToFitWidth = YES;
 	self.badge.textAlignment = UITextAlignmentCenter;
-	self.badge.opaque = YES;
-	self.badge.backgroundColor = [UIColor clearColor];
-	self.badge.shadowOffset = CGSizeMake(0, 1);
-	self.badge.shadowColor = kFontShadowColor;
-	
-	self.badge.layer.cornerRadius = 8;
-	self.badge.layer.backgroundColor = [[UIColor blackColor] CGColor];
+    self.badge.backgroundColor = [UIColor clearColor];
+    
 }
 
 - (void)setBadgeText:(NSString*)text
@@ -67,9 +73,9 @@
 	if (text == nil || [text isEqualToString:@""]) {
 		[self.badge setAlpha:0];
 	} else {
-		CGSize fontSize = [text sizeWithFont:kBadgeFont];
-		CGRect badgeFrame = CGRectMake(kBadgePosition - (fontSize.width + 15.0) / 2.0, 12, fontSize.width + 15.0, 20);
+		CGRect badgeFrame = CGRectMake(0, 0, 31, 24);
 		self.badge.frame = badgeFrame;
+        self.labelBackground.frame = badgeFrame;
 		self.badge.text = text;
 		[self.badge setAlpha:1];
 	}

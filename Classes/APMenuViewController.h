@@ -8,7 +8,7 @@
 
 @interface APMenuViewController : UITableViewController
 
-@property (nonatomic, readonly) NSMutableArray *section;
+@property (nonatomic, readonly) NSMutableArray *sections;
 @property (nonatomic, readonly) NSMutableDictionary *menuElements;
 
 - (void) configureMenu;

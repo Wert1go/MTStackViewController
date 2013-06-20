@@ -12,8 +12,11 @@
 #import "APMetaEntity.h"
 
 #import "APMenuViewControllerConfig.h"
+#import "APStackViewControllerConfig.h"
 #import "APMenuTableCell.h"
 #import "APMenuTableHeader.h"
+
+#import "DesignConstants.h"
 
 static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 
@@ -42,12 +45,20 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self configureMenu];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+	self.tableView.backgroundColor = kBackground;
+	self.tableView.scrollsToTop = NO;
+    
+    [self configureMenu];
 }
-
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    self.tableView.frame = CGRectMake(0, 0, kSlideOutMenuWidth, self.tableView.frame.size.height);
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    [self.tableView reloadData];
+    
     if (!self.didSetInitialViewController)
     {
         [self setInitialViewController];
@@ -126,7 +137,8 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     NSString *title = self.sections[section];
     if (title) {
         APMenuTableHeader *header = [[APMenuTableHeader alloc] init];
-        header.titleLabel.text = title;
+        header.titleLabel.text = [title uppercaseString];
+        [header.titleLabel setFont:[UIFont fontWithName:INTERFACE_FONT_BOLD size:14.0f]];
         return header;
     }
     
@@ -158,7 +170,6 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     //Or you can do other staff and simple hide menu like that: [[self stackViewController] hideLeftViewController];
 }
 
-
 - (void)configureCell:(APMenuTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     APMetaEntity *entity = [self entityForIndexPath:indexPath];
@@ -166,6 +177,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     if (entity.icon) {
         [cell.imageView setImage:entity.icon];
     }
+    [cell.textLabel setFont:[UIFont fontWithName:INTERFACE_FONT size:COMMON_FONT_SIZE]];
     [cell.textLabel setText:entity.titleText];
     [cell setBadgeText:entity.badgeText];
 }

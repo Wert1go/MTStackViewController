@@ -220,7 +220,7 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     [_leftHeaderView setBackgroundColor:[UIColor whiteColor]];
     [_leftContainerView setBackgroundColor:[UIColor whiteColor]];
     [_rightContainerView setBackgroundColor:[UIColor whiteColor]];
-    [_contentContainerView setBackgroundColor:[UIColor whiteColor]];
+    [_contentContainerView setBackgroundColor:[UIColor blackColor]];
     
     _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizerDidTap:)];
     
@@ -251,6 +251,7 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     UIView *view = [[UIView alloc] initWithFrame:frame];
     [view setAutoresizesSubviews:YES];
     [view setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
+    view.backgroundColor = [UIColor blackColor];
     
     CGFloat leftContainerOriginX = 0.0f;
     if (_leftControllerParallaxEnabled)
@@ -757,6 +758,7 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
                                                                      CGRectGetMinY([_leftContainerView frame]),
                                                                      CGRectGetWidth([_leftContainerView frame]),
                                                                      CGRectGetHeight([_leftContainerView frame]))];
+                             
                              [[_contentContainerView layer] setShadowRadius:[self minShadowRadius]];
                              [[_contentContainerView layer] setShadowOpacity:[self minShadowOpacity]];
                              

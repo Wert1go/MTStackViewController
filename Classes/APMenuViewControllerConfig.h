@@ -10,7 +10,7 @@
 
 // Menu Controller
 #define kBackground				[UIColor colorWithRed:45.0f/255.0f green:45.0f/255.0f blue:45.0f/255.0f alpha:1.0]
-#define kSelectionBackground	[UIColor colorWithRed:31.0f/255.0f green:32.0f/255.0f blue:33.0f/255.0f alpha:1.0]
+#define kSelectionBackground	[UIColor colorWithRed:15.0f/255.0f green:15.0f/255.0f blue:15.0f/255.0f alpha:1.0]
 
 // Table Cell
 #define kImagePadding		50
@@ -19,7 +19,7 @@
 #define kCellBackground		[UIColor colorWithRed:45.0f/255.0f green:45.0f/255.0f blue:45.0f/255.0f alpha:1.0].CGColor
 #define kUpperSeparator		[UIColor colorWithRed:18.0f/255.0f green:18.0f/255.0f blue:20.0f/255.0f alpha:1.0].CGColor
 #define kLowerSeparator		[UIColor colorWithRed:66.0f/255.0f green:66.0f/255.0f blue:66.0f/255.0f alpha:1.0].CGColor
-#define kCellFontColor		[UIColor colorWithRed:0.77 green:0.8 blue:0.85 alpha:1.0]
+#define kCellFontColor		[UIColor colorWithRed:180.0f/255.0f green:180.0f/255.0f blue:180.0f/255.0f alpha:1.0f]
 #define kCellShadowColor	[UIColor colorWithRed:0.21 green:0.15 blue:0.19 alpha:1.0]
 
 // Header Cell
