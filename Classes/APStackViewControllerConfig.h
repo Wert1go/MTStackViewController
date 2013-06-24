@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define kSlideOutMenuWidth          isIpad ? 280.0f : 266
+#define kSlideOutMenuWidth          280.0f
 #define kDefaultSwipeVelocity       250.0f
 
 @interface APStackViewControllerConfig : NSObject
