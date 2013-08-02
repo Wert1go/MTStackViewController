@@ -136,6 +136,9 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     MTStackContainerView *_leftHeaderView;
     MTStackContainerView *_rightContainerView;
     MTStackContentContainerView *_contentContainerView;
+    
+    UIViewController *_overlayViewController;
+    
     CGPoint _initialPanGestureLocation;
     CGRect _initialContentControllerFrame;
     UITapGestureRecognizer *_tapGestureRecognizer;
@@ -472,7 +475,6 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     {
         [self contentContainerView:_contentContainerView panGestureRecognizerDidPan:panGestureRecognizer];
     }
-    
 }
 
 #pragma mark - UIGestureRecognizerDelegate Methods
@@ -1203,8 +1205,61 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
         if (self.alwaysShowLeftMenu && !self.leftViewControllerVisible) {
             [self revealLeftViewControllerAnimated:NO];
             [self setContentViewUserInteractionEnabled:YES];
+        } else {
+            [self setContentViewUserInteractionEnabled:YES];
         }
-        [self setContentViewUserInteractionEnabled:YES];
+    }
+}
+
+- (void) showOverlayViewController:(UIViewController *)controller animated:(BOOL)animated{
+    _overlayViewController = controller;
+
+    CGRect frame = _contentContainerView.bounds;
+    
+    NSLog(@"%@", NSStringFromCGRect(frame));
+    
+    controller.view.frame = CGRectMake(
+                                       frame.origin.x,
+                                       frame.size.height,
+                                       frame.size.width,
+                                       frame.size.height);
+    
+    NSLog(@"%@", NSStringFromCGRect(controller.view.frame));
+    
+    [_contentContainerView addSubview:controller.view];
+    [_contentContainerView bringSubviewToFront:controller.view];
+    
+    [self addChildViewController:controller];
+    
+    if (animated) {
+    
+        [UIView animateWithDuration:.7f animations:^{
+            controller.view.frame = frame;
+        } completion:^(BOOL finished) {
+        }];
+        
+    } else {
+        controller.view.frame = frame;
+    }
+}
+
+- (void) hideOverlayViewController {
+    if (_overlayViewController) {
+        
+        [UIView animateWithDuration:.7f animations:^{
+            
+            CGRect frame = _contentContainerView.bounds;
+            _overlayViewController.view.frame = CGRectMake(
+                                                           frame.origin.x,
+                                                           frame.size.height,
+                                                           frame.size.width,
+                                                           frame.size.height);
+            
+        } completion:^(BOOL finished) {
+            [_overlayViewController.view removeFromSuperview];
+            [_overlayViewController removeFromParentViewController];
+            _overlayViewController = nil;
+        }];
     }
 }
 
