@@ -444,6 +444,18 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
         else
         {
             [containerView addSubview:[newViewController view]];
+            
+            NSLayoutConstraint *vertical1 = [NSLayoutConstraint constraintWithItem:containerView 
+                                                                         attribute: NSLayoutAttributeWidth
+                                                                         relatedBy: NSLayoutRelationEqual
+                                                                            toItem: [newViewController view]
+                                                                         attribute: NSLayoutAttributeWidth
+                                                                        multiplier: 1.0f
+                                                                          constant: 120.0f
+                                             ];
+            
+            //[containerView addConstraint:vertical1];
+            
         }
     }
     else if (currentViewController)
