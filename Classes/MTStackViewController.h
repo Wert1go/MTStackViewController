@@ -224,6 +224,8 @@ enum ButtonState {
 
 - (UIBarButtonItem *) getMenuButtonInState: (enum ButtonState) state;
 
+- (float) slideOutMenuWidth;
+
 @end
 
 @protocol MTStackChildViewController <NSObject>

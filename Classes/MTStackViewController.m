@@ -201,10 +201,10 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     _rightViewControllerEnabled = NO;
     _leftControllerParallaxEnabled = YES;
     _rightControllerParallaxEnabled = YES;
-    _leftSnapThreshold = kSlideOutMenuWidth - kSlideOutMenuWidth/4;
+    _leftSnapThreshold = [self slideOutMenuWidth] - [self slideOutMenuWidth]/4;
     _rasterizesViewsDuringAnimation = YES;
     
-    [self setSlideOffset:kSlideOutMenuWidth];
+    [self setSlideOffset:[self slideOutMenuWidth]];
     [self setHeaderSlideOffset:[self slideOffset] * 0.5];
     
     _leftContainerView = [[MTStackContainerView alloc] initWithFrame:screenBounds];
@@ -243,6 +243,10 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     [self setLeftViewControllerOverlayColor:[UIColor blackColor]];
     [self setRightViewControllerOverlayColor:[UIColor blackColor]];
     [[_leftHeaderView overlayView] setBackgroundColor:[UIColor blackColor]];
+}
+
+- (float) slideOutMenuWidth {
+    return kSlideOutMenuWidth;
 }
 
 - (void)loadView

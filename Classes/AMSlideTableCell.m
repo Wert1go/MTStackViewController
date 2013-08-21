@@ -62,7 +62,7 @@
 	self.badge.font = kBadgeFont;
 	self.badge.textColor = kCellFontColor;
 	self.badge.adjustsFontSizeToFitWidth = YES;
-	self.badge.textAlignment = UITextAlignmentCenter;
+	self.badge.textAlignment = NSTextAlignmentCenter;
     self.badge.backgroundColor = [UIColor clearColor];
     
 }
