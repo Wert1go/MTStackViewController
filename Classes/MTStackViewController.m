@@ -789,7 +789,9 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
                                  [[self delegate] stackViewController:self didRevealLeftViewController:[self leftViewController]];
                              }
                              
-                             [self setMenuButtonToState:ACTIVE];
+                             if ([self canSetButton]) {
+                                 [self setMenuButtonToState:ACTIVE];
+                             }
                          }];
     }
 }
@@ -864,7 +866,9 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
 - (void)hideLeftViewControllerAnimated:(BOOL)animated
 {
     [self hideLeftOrRightViewControllerAnimated:animated];
-    [self setMenuButtonToState:INACTIVE];
+    if ([self canSetButton]) {
+        [self setMenuButtonToState:INACTIVE];
+    }
 }
 
 - (void)hideRightViewController
@@ -1212,6 +1216,15 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
         } else {
             [self setContentViewUserInteractionEnabled:YES];
         }
+    }
+}
+
+- (BOOL) canSetButton {
+    UINavigationController *navigationController = (UINavigationController *)[self contentViewController];
+    if (navigationController.viewControllers.count > 1) {
+        return NO;
+    } else {
+        return YES;
     }
 }
 

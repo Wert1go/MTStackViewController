@@ -226,6 +226,8 @@ enum ButtonState {
 
 - (float) slideOutMenuWidth;
 
+- (void)setContentViewUserInteractionEnabled:(BOOL)userInteractionEnabled;
+
 @end
 
 @protocol MTStackChildViewController <NSObject>
