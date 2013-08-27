@@ -1090,13 +1090,17 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     else
     {
         id <MTStackChildViewController> navigationChild = [self stackChildViewControllerForViewController:[self contentViewController]];
-        
+        UINavigationController *navController = (UINavigationController *)_overlayViewController;
         if (navigationChild)
         {
             shouldPan = [navigationChild shouldAllowPanning];
+
+        } else if ([navController.topViewController respondsToSelector:@selector(shouldAllowPanning)]) {
+            
+            shouldPan = (BOOL)[navController.topViewController performSelector:@selector(shouldAllowPanning)];
         }
     }
-    
+
     return shouldPan;
 }
 
@@ -1233,15 +1237,11 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
 
     CGRect frame = _contentContainerView.bounds;
     
-    NSLog(@"%@", NSStringFromCGRect(frame));
-    
     controller.view.frame = CGRectMake(
                                        frame.origin.x,
                                        frame.size.height,
                                        frame.size.width,
                                        frame.size.height);
-    
-    NSLog(@"%@", NSStringFromCGRect(controller.view.frame));
     
     [_contentContainerView addSubview:controller.view];
     [_contentContainerView bringSubviewToFront:controller.view];

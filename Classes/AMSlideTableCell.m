@@ -10,7 +10,7 @@
 #import "APMenuViewControllerConfig.h"
 #import "APStackViewControllerConfig.h"
 
-#define kBadgeFont		[UIFont fontWithName:@"Helvetica" size:14]
+#define kBadgeFont		[UIFont fontWithName:@"HelveticaNeue-Bold" size:15]
 
 @interface AMSlideTableCell ()
 
@@ -34,7 +34,7 @@
 		
         self.badge = [[UILabel alloc] init];
         self.labelBackground = [[UIImageView alloc] init];
-        [self.labelBackground setImage:[UIImage imageNamed:@"counter.png"]];
+        [self.labelBackground setImage:[UIImage imageNamed:@"notification_count_bg.png"]];
         
         [self.labelBackground addSubview:self.badge];
         self.accessoryView = self.labelBackground;
@@ -60,11 +60,10 @@
 	
 	// Set badge properties
 	self.badge.font = kBadgeFont;
-	self.badge.textColor = kCellFontColor;
+	self.badge.textColor = [UIColor colorWithRed:30.0f/255.0f green:30.0f/255.0f blue:30.0f/255.0f alpha:1.0f];
 	self.badge.adjustsFontSizeToFitWidth = YES;
 	self.badge.textAlignment = NSTextAlignmentCenter;
-    self.badge.backgroundColor = [UIColor clearColor];
-    
+    self.badge.backgroundColor = [UIColor clearColor];    
 }
 
 - (void)setBadgeText:(NSString*)text

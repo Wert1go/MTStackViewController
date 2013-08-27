@@ -100,6 +100,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     APMetaEntity *element = [[APMetaEntity alloc] initWithAction:action_ titleText:title badgeText:text icon:icon_ tag:tag];
     NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInt:sectionId]];
     [sectionElements addObject:element];
+    element.indexPath = [NSIndexPath indexPathForRow:sectionElements.count - 1 inSection:sectionId];
 }
 
 - (void) addMenuElementWithController:(UIViewController *)controller_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tagged:(NSInteger)tag {
@@ -110,6 +111,8 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     APMetaEntity *element = [[APMetaEntity alloc] initWithController:controller_ titleText:title badgeText:text icon:icon_ tag:tag];
     NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInt:sectionId]];
     [sectionElements addObject:element];
+    
+    element.indexPath = [NSIndexPath indexPathForRow:sectionElements.count - 1 inSection:sectionId];
 }
 
 #pragma mark - UITableViewDatasource Methods

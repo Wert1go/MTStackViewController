@@ -15,6 +15,9 @@
 @property (nonatomic, strong) NSString *badgeText;
 @property (nonatomic, strong) UIImage *icon;
 @property (nonatomic, assign) NSInteger tag;
+
+@property (nonatomic, strong) NSIndexPath *indexPath;
+
 @property (nonatomic, copy) void (^action)();
 
 @property (nonatomic, assign) BOOL isActionType;
