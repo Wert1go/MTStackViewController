@@ -69,13 +69,13 @@
 - (void)setBadgeText:(NSString*)text
 {
 	if (!text || [text isEqualToString:@""] || [text isEqualToString:@"0"]) {
-		[self.labelBackground setAlpha:0];
+		[self.badge setAlpha:0];
 	} else {
 		CGRect badgeFrame = CGRectMake(0, 0, 31, 24);
 		self.badge.frame = badgeFrame;
         self.labelBackground.frame = badgeFrame;
 		self.badge.text = text;
-		[self.labelBackground setAlpha:1];
+		[self.badge setAlpha:1];
 	}
 }
 
