@@ -1098,6 +1098,8 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
         } else if ([navController.topViewController respondsToSelector:@selector(shouldAllowPanning)]) {
             
             shouldPan = (BOOL)[navController.topViewController performSelector:@selector(shouldAllowPanning)];
+        } else if ([navController respondsToSelector:@selector(shouldAllowPanning)]) {
+            shouldPan = (BOOL)[navController performSelector:@selector(shouldAllowPanning)];
         }
     }
 
