@@ -121,7 +121,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 {
     APMenuTableCell *cell = [tableView dequeueReusableCellWithIdentifier:APTableViewCellIdentifier];
     if (!cell) {
-        cell = [[APMenuTableCell alloc] init];
+        cell = [[APMenuTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:APTableViewCellIdentifier];
     }
     
     [self configureCell:cell atIndexPath:indexPath];
