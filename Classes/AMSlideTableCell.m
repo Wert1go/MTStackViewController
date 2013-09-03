@@ -42,6 +42,7 @@
         UIView* selection = [[UIView alloc] initWithFrame:self.frame];
         [selection setBackgroundColor:kSelectionBackground];
         self.selectedBackgroundView = selection;
+        [self.badge setAlpha:0];
     }
     return self;
 }
@@ -63,19 +64,22 @@
 	self.badge.textColor = [UIColor colorWithRed:30.0f/255.0f green:30.0f/255.0f blue:30.0f/255.0f alpha:1.0f];
 	self.badge.adjustsFontSizeToFitWidth = YES;
 	self.badge.textAlignment = NSTextAlignmentCenter;
-    self.badge.backgroundColor = [UIColor clearColor];    
+    self.badge.backgroundColor = [UIColor clearColor];
 }
 
 - (void)setBadgeText:(NSString*)text
 {
+    
 	if (!text || [text isEqualToString:@""] || [text isEqualToString:@"0"]) {
-		[self.badge setAlpha:0];
+		self.badge.hidden = YES;
+        self.labelBackground.hidden = YES;
 	} else {
 		CGRect badgeFrame = CGRectMake(0, 0, 31, 24);
 		self.badge.frame = badgeFrame;
         self.labelBackground.frame = badgeFrame;
 		self.badge.text = text;
-		[self.badge setAlpha:1];
+		self.badge.hidden = NO;
+        self.labelBackground.hidden = NO;
 	}
 }
 
