@@ -42,8 +42,10 @@
         UIView* selection = [[UIView alloc] initWithFrame:self.frame];
         [selection setBackgroundColor:kSelectionBackground];
         self.selectedBackgroundView = selection;
-        [self.badge setAlpha:0];
+        self.contentView.backgroundColor = [UIColor grayColor30];
+        self.backgroundColor = [UIColor grayColor30];
     }
+    
     return self;
 }
 
