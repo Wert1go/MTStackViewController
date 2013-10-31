@@ -25,13 +25,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma Rotation overrides
@@ -51,14 +44,18 @@
 - (UIBarButtonItem *) getMenuButtonInState:(enum ButtonState) state {
     
     UIImage* image = [UIImage imageNamed: state == INACTIVE ? @"slideout_button_inactive.png" : @"slideout_button_active.png"];
-    CGRect frame = CGRectMake(0, 0, 21, 16);
+    //размеры для iOS 6
+    CGRect frame = CGRectMake(0, 0, isIOS7 ? 21 : 44, isIOS7 ? 16 : 44);
     UIButton* someButton = [[UIButton alloc] initWithFrame:frame];
     [someButton addTarget:self action:@selector(toggleLeftViewController) forControlEvents:UIControlEventTouchUpInside];
-    [someButton setBackgroundImage:image forState:UIControlStateNormal];
+    
+    [someButton setImage:image forState:UIControlStateNormal];
+    
     if(state == INACTIVE) {
         someButton.alpha = 0.7f;
     }
-   // [someButton setShowsTouchWhenHighlighted:YES];
+    
+    [someButton setShowsTouchWhenHighlighted:YES];
     
     UIBarButtonItem * button = [[UIBarButtonItem alloc] initWithCustomView:someButton];
     return button;
