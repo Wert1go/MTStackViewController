@@ -10,7 +10,7 @@
 #import "APMenuViewControllerConfig.h"
 #import "APStackViewControllerConfig.h"
 
-#define kBadgeFont		[UIFont fontWithName:@"HelveticaNeue-Bold" size:15]
+#define kBadgeFont		[UIFont fontWithName:@"HelveticaNeue" size:16]
 
 @interface AMSlideTableCell ()
 
@@ -33,16 +33,13 @@
 		self.textLabel.font = [UIFont fontWithName:kCommonFontName size:kCommonFontSize];
 		
         self.badge = [[UILabel alloc] init];
-        self.labelBackground = [[UIImageView alloc] init];
-        [self.labelBackground setImage:[UIImage imageNamed:@"notification_count_bg.png"]];
-        
-        [self.labelBackground addSubview:self.badge];
-        self.accessoryView = self.labelBackground;
         
         UIView* selection = [[UIView alloc] initWithFrame:self.frame];
         [selection setBackgroundColor:kSelectionBackground];
         self.selectedBackgroundView = selection;
-        
+        self.showTopBorder = NO;
+        self.showBottomBorder = YES;
+        self.showFullSize = NO;
     }
     
     return self;
@@ -59,6 +56,9 @@
 	} else {
 		self.textLabel.frame = CGRectMake(kTextPadding, 0, kSlideOutMenuWidth - kTextPadding, height);
 	}
+    
+    CGRect badgeFrame = CGRectMake(self.frame.size.width - 31, height/2 - 24/2, 31, 24);
+    self.badge.frame = badgeFrame;
 	
 	// Set badge properties
 	self.badge.font = kBadgeFont;
@@ -73,14 +73,12 @@
     
 	if (!text || [text isEqualToString:@""] || [text isEqualToString:@"0"]) {
 		self.badge.hidden = YES;
-        self.labelBackground.hidden = YES;
+
 	} else {
-		CGRect badgeFrame = CGRectMake(0, 0, 31, 24);
-		self.badge.frame = badgeFrame;
-        self.labelBackground.frame = badgeFrame;
+
 		self.badge.text = text;
 		self.badge.hidden = NO;
-        self.labelBackground.hidden = NO;
+
 	}
 }
 
@@ -96,19 +94,23 @@
 	CGContextSetFillColorWithColor(context, kCellBackground);
 	CGContextFillRect(context, self.bounds);
 	
-	CGContextSetStrokeColorWithColor(context, kUpperSeparator);
-    CGContextBeginPath(context);
-	CGContextSetLineWidth(context, 2.0);
-    CGContextMoveToPoint(context, 0, 0);
-    CGContextAddLineToPoint(context, self.bounds.size.width, 0);
-    CGContextStrokePath(context);
+    if (self.showTopBorder) {
+        CGContextSetStrokeColorWithColor(context, kUpperSeparator);
+        CGContextBeginPath(context);
+        CGContextSetLineWidth(context, 1.0);
+        CGContextMoveToPoint(context, self.showFullSize ? 0 : 44, 0);
+        CGContextAddLineToPoint(context, self.bounds.size.width, 0);
+        CGContextStrokePath(context);
+    }
 	
-	CGContextSetStrokeColorWithColor(context, kLowerSeparator);
-    CGContextBeginPath(context);
-	CGContextSetLineWidth(context, 2.0);
-    CGContextMoveToPoint(context, 0, self.bounds.size.height);
-    CGContextAddLineToPoint(context, self.bounds.size.width, self.bounds.size.height);
-    CGContextStrokePath(context);
+    if(self.showBottomBorder) {
+        CGContextSetStrokeColorWithColor(context, kLowerSeparator);
+        CGContextBeginPath(context);
+        CGContextSetLineWidth(context, 1.0);
+        CGContextMoveToPoint(context, self.showFullSize ? 0 : 44, self.bounds.size.height);
+        CGContextAddLineToPoint(context, self.bounds.size.width, self.bounds.size.height);
+        CGContextStrokePath(context);
+    }
 }
 
 @end

@@ -33,4 +33,8 @@
 
 - (void)setBadgeText:(NSString*)text;
 
+@property (nonatomic, assign) BOOL showBottomBorder;
+@property (nonatomic, assign) BOOL showTopBorder;
+@property (nonatomic, assign) BOOL showFullSize;
+
 @end

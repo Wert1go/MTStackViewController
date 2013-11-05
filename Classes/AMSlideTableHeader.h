@@ -27,5 +27,7 @@
 @interface AMSlideTableHeader : UIView
 
 @property (nonatomic, retain) UILabel*	titleLabel;
+@property (nonatomic, assign) BOOL showBottomBorder;
+@property (nonatomic, assign) BOOL showTopBorder;
 
 @end

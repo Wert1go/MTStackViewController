@@ -122,6 +122,17 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     APMenuTableCell *cell = [tableView dequeueReusableCellWithIdentifier:APTableViewCellIdentifier];
     if (!cell) {
         cell = [[APMenuTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:APTableViewCellIdentifier];
+        
+        if (indexPath.section != 0 && indexPath.row == 0) {
+            cell.showTopBorder = YES;
+        } else {
+            cell.showTopBorder = NO;
+            cell.showFullSize = NO;
+        }
+        
+        if (indexPath.section == 1 && indexPath.row == [self tableView:tableView numberOfRowsInSection:indexPath.section] - 1) {
+            cell.showFullSize = YES;
+        }
     }
     
     [self configureCell:cell atIndexPath:indexPath];
