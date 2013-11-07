@@ -52,6 +52,7 @@
     float height = self.frame.size.height;
 	if (self.imageView.image) {
 		self.imageView.frame = CGRectMake(height/2 - 30/2, height/2 - 30/2, 30, 30);
+        self.imageView.contentMode = UIViewContentModeCenter;
 		self.textLabel.frame = CGRectMake(kImagePadding, 0, kSlideOutMenuWidth - kImagePadding, height);
 	} else {
 		self.textLabel.frame = CGRectMake(kTextPadding, 0, kSlideOutMenuWidth - kTextPadding, height);
