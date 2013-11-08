@@ -46,7 +46,7 @@
     UIImage* image = [UIImage imageNamed: state == INACTIVE ? @"slideout_button_inactive.png" : @"slideout_button_active.png"];
     //размеры для iOS 6
     //CGRect frame = CGRectMake(0, 0, isIOS7 ? 21 : 44, isIOS7 ? 16 : 44);
-    CGRect frame = CGRectMake(0, 0, 50, 44);
+    CGRect frame = CGRectMake(0, 0, 44, 44);
     UIButton* someButton = [[UIButton alloc] initWithFrame:frame];
     someButton.backgroundColor = [UIColor clearColor];
     
@@ -54,7 +54,7 @@
     
     [someButton setImage:image forState:UIControlStateNormal];
     someButton.imageView.contentMode = UIViewContentModeLeft;
-    someButton.imageEdgeInsets = UIEdgeInsetsMake(0, (isIOS7)?-20:-10, 0, 0);
+    someButton.imageEdgeInsets = UIEdgeInsetsMake(0, (isIOS7)?-20:0, 0, 0);
 
     if(state == INACTIVE) {
         someButton.alpha = 0.7f;
