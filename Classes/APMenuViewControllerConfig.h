@@ -20,7 +20,7 @@
 #define kUpperSeparator		[UIColor colorWithRed:18.0f/255.0f green:18.0f/255.0f blue:20.0f/255.0f alpha:1.0].CGColor
 #define kLowerSeparator		[UIColor colorWithRed:66.0f/255.0f green:66.0f/255.0f blue:66.0f/255.0f alpha:1.0].CGColor
 #define kCellFontColor		[UIColor whiteColor]
-#define kCellShadowColor	[UIColor colorWithRed:0.21 green:0.15 blue:0.19 alpha:1.0]
+#define kCellShadowColor	[UIColor clearColor]
 
 // Header Cell
 #define	kTextHeaderPadding	10
@@ -29,9 +29,9 @@
 #define kUpperSeparator		[UIColor colorWithRed:53/255.0f green:53/255.0f blue:53/255.0f alpha:1.0].CGColor
 #define kLowerSeparator		[UIColor colorWithRed:53/255.0f green:53/255.0f blue:53/255.0f alpha:1.0].CGColor
 #define kFontColor			[UIColor colorWithRed:0.49 green:0.50 blue:0.57 alpha:1.0]
-#define kFontShadowColor	[UIColor colorWithRed:0.21 green:0.15 blue:0.19 alpha:1.0]
+#define kFontShadowColor	[UIColor clearColor]
 
-#define kCommonFontName @"HelveticaNeue-Bold"
+#define kCommonFontName @"HelveticaNeue"
 #define kCommonFontNameBold @"HelveticaNeue-Bold"
 
 #define kCommonFontSize 18.0f
