@@ -10,7 +10,7 @@
 #import "APMenuViewControllerConfig.h"
 #import "APStackViewControllerConfig.h"
 
-#define kBadgeFont		[UIFont fontWithName:@"HelveticaNeue" size:16]
+#define kBadgeFont		[UIFont fontWithName:@"HelveticaNeue" size:18]
 
 @interface AMSlideTableCell ()
 
@@ -33,6 +33,9 @@
 		self.textLabel.font = [UIFont fontWithName:kCommonFontName size:kCommonFontSize];
 		
         self.badge = [[UILabel alloc] init];
+        [self addSubview:self.badge];
+        
+        
         
         UIView* selection = [[UIView alloc] initWithFrame:self.frame];
         [selection setBackgroundColor:kSelectionBackground];
@@ -63,7 +66,7 @@
 	
 	// Set badge properties
 	self.badge.font = kBadgeFont;
-	self.badge.textColor = [UIColor colorWithRed:30.0f/255.0f green:30.0f/255.0f blue:30.0f/255.0f alpha:1.0f];
+	self.badge.textColor = [UIColor colorWithRed:83.0f/255.0f green:83.0f/255.0f blue:83.0f/255.0f alpha:1.0f];
 	self.badge.adjustsFontSizeToFitWidth = YES;
 	self.badge.textAlignment = NSTextAlignmentCenter;
     self.badge.backgroundColor = [UIColor clearColor];
@@ -71,15 +74,11 @@
 
 - (void)setBadgeText:(NSString*)text
 {
-    
 	if (!text || [text isEqualToString:@""] || [text isEqualToString:@"0"]) {
 		self.badge.hidden = YES;
-
 	} else {
-
 		self.badge.text = text;
 		self.badge.hidden = NO;
-
 	}
 }
 
