@@ -218,9 +218,10 @@ enum ButtonState {
 - (void)toggleRightViewControllerAnimated:(BOOL)animated;
 - (void)toggleRightViewController;
 
-- (void) setActiveViewControllerAndHideMenu: (UIViewController *) controller;
-- (void) showOverlayViewController:(UIViewController *)controller animated: (BOOL) animated;
-- (void) hideOverlayViewController;
+- (void)setActiveViewControllerAndHideMenu: (UIViewController *) controller;
+- (void)showOverlayViewController:(UIViewController *)controller animated: (BOOL) animated;
+- (void)hideOverlayViewController;
+- (void)hideOverlayViewControllerWithCompletion:(void (^)(void))completion;
 
 - (UIBarButtonItem *) getMenuButtonInState: (enum ButtonState) state;
 

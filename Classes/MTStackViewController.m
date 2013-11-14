@@ -1282,6 +1282,27 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     }
 }
 
+- (void)hideOverlayViewControllerWithCompletion:(void (^)(void))completion{
+    if (_overlayViewController) {
+        
+        [UIView animateWithDuration:.7f animations:^{
+            
+            CGRect frame = _contentContainerView.bounds;
+            _overlayViewController.view.frame = CGRectMake(
+                                                           frame.origin.x,
+                                                           frame.size.height,
+                                                           frame.size.width,
+                                                           frame.size.height);
+            
+        } completion:^(BOOL finished) {
+            [_overlayViewController.view removeFromSuperview];
+            [_overlayViewController removeFromParentViewController];
+            _overlayViewController = nil;
+            completion();
+        }];
+    }
+}
+
 - (void) setMenuButtonToState: (enum ButtonState) state {
     if (!self.alwaysShowLeftMenu) {
         UINavigationController *navigationController = (UINavigationController *)[self contentViewController];
