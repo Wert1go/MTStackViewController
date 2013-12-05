@@ -17,8 +17,8 @@
 #define kTextPadding		20
 #define kBadgePosition		220
 #define kCellBackground		[UIColor colorWithRed:14/255.0f green:14/255.0f blue:14/255.0f alpha:1.0].CGColor
-#define kUpperSeparator		[UIColor colorWithRed:18.0f/255.0f green:18.0f/255.0f blue:20.0f/255.0f alpha:1.0].CGColor
-#define kLowerSeparator		[UIColor colorWithRed:66.0f/255.0f green:66.0f/255.0f blue:66.0f/255.0f alpha:1.0].CGColor
+//#define kUpperSeparator		[UIColor colorWithRed:18.0f/255.0f green:18.0f/255.0f blue:20.0f/255.0f alpha:1.0].CGColor
+//#define kLowerSeparator		[UIColor colorWithRed:66.0f/255.0f green:66.0f/255.0f blue:66.0f/255.0f alpha:1.0].CGColor
 #define kCellFontColor		[UIColor whiteColor]
 #define kCellShadowColor	[UIColor clearColor]
 
