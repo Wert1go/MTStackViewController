@@ -30,4 +30,5 @@
 @property (nonatomic, assign) BOOL showBottomBorder;
 @property (nonatomic, assign) BOOL showTopBorder;
 
+@property (nonatomic, assign) CGFloat ySpaceLabel;
 @end

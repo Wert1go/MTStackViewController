@@ -29,7 +29,7 @@
 
 -(void) layoutSubviews
 {
-    _titleLabel.frame = CGRectMake(kTextHeaderPadding, 0, kSlideOutMenuWidth - kTextHeaderPadding, self.bounds.size.height);
+    _titleLabel.frame = CGRectMake(kTextHeaderPadding, self.ySpaceLabel, kSlideOutMenuWidth - kTextHeaderPadding, self.bounds.size.height);
 }
 
 - (void)drawRect:(CGRect)rect
