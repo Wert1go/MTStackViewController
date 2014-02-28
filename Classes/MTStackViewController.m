@@ -233,7 +233,7 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     [_contentContainerView addGestureRecognizer:_panGestureRecognizer];
     
     [self setSlideAnimationDuration:0.3f];
-    [self setTrackingAnimationDuration:0.05f];
+    [self setTrackingAnimationDuration:0.01];
     [self setMinShadowRadius:3.0f];
     [self setMaxShadowRadius:10.0f];
     [self setMinShadowOpacity:0.5f];

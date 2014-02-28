@@ -92,7 +92,7 @@ enum ButtonState {
 // How long the animation should take when a pan gesture is recognized.
 // This animation is used when a horizontal pan gesture is detected to make the content view
 // animate to the new offset
-// Default: 0.05f
+// Default: 0.01
 @property (nonatomic, assign) CGFloat trackingAnimationDuration;
 
 // Whether the reveal or hide animation duration speeds up if the content controller is
