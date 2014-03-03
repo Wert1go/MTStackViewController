@@ -1211,7 +1211,12 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
 
 - (void) setActiveViewControllerAndHideMenu:(UIViewController *)controller {
     UINavigationController *navigationController = (UINavigationController *)[self contentViewController];
-    [navigationController setViewControllers:@[controller]];
+
+    if (navigationController.viewControllers.count) {
+        [navigationController setViewControllers:@[] animated:NO];
+    }
+
+    [navigationController pushViewController:controller animated:NO];
     
     if (!self.alwaysShowLeftMenu) {
         [self hideLeftViewController];
