@@ -45,7 +45,7 @@
     
     UIImage* image = [UIImage imageNamed: state == INACTIVE ? @"slideout_button_inactive.png" : @"slideout_button_active.png"];
     //размеры для iOS 6
-    CGRect frame = CGRectMake(0, 0, isIOS7 ? 21 : 44, isIOS7 ? 16 : 44);
+    CGRect frame = CGRectMake(0, 0, isIOS7 ? 24 : 44, isIOS7 ? 15 : 44);
     UIButton* someButton = [[UIButton alloc] initWithFrame:frame];
     [someButton addTarget:self action:@selector(toggleLeftViewController) forControlEvents:UIControlEventTouchUpInside];
     
