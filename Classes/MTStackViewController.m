@@ -232,7 +232,7 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     [_panGestureRecognizer setDelegate:self];
     [_contentContainerView addGestureRecognizer:_panGestureRecognizer];
     
-    [self setSlideAnimationDuration:0.3f];
+    [self setSlideAnimationDuration:0.25f];
     [self setTrackingAnimationDuration:0.01];
     [self setMinShadowRadius:3.0f];
     [self setMaxShadowRadius:10.0f];
@@ -621,7 +621,7 @@ const char *MTStackViewControllerKey = "MTStackViewControllerKey";
     {
         contentViewFrameX = [self slideOffset];
     } else if (contentViewFrameX < 0) {
-        contentViewFrameX = 1.0f;
+        contentViewFrameX = 0.0f;
     }
     
     if (
