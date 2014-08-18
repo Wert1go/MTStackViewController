@@ -66,7 +66,8 @@
 	
 	// Set badge properties
 	self.badge.font = kBadgeFont;
-	self.badge.textColor = [UIColor colorWithRed:83.0f/255.0f green:83.0f/255.0f blue:83.0f/255.0f alpha:1.0f];
+	//self.badge.textColor = [UIColor colorWithRed:83.0f/255.0f green:83.0f/255.0f blue:83.0f/255.0f alpha:1.0f];
+    self.badge.textColor = kCellBadgeColor;
 	self.badge.adjustsFontSizeToFitWidth = YES;
 	self.badge.textAlignment = NSTextAlignmentCenter;
     self.badge.backgroundColor = [UIColor clearColor];

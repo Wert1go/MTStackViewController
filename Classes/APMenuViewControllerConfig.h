@@ -22,6 +22,7 @@
 #define kCellFontColor		[UIColor whiteColor]
 #define kCellShadowColor	[UIColor clearColor]
 
+#define kCellBadgeColor	[UIColor greenColor]
 // Header Cell
 #define	kTextHeaderPadding	10
 #define kGradientUp			[UIColor colorWithRed:31.0f/255.0f green:32.0f/255.0f blue:33.0f/255.0f alpha:1.0]
