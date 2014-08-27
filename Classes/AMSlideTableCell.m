@@ -89,7 +89,7 @@
 {
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
-	CGContextSetFillColorWithColor(context, kCellBackground);
+	CGContextSetFillColorWithColor(context, kCellBackground.CGColor);
 	CGContextFillRect(context, self.bounds);
 	
 	CGContextSetStrokeColorWithColor(context, kUpperSeparator);

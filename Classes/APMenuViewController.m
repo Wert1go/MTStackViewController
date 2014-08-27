@@ -81,7 +81,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 
 - (void) addMenuSectionWithTitle: (NSString *) title{
     [self.sections addObject:title];
-    [self.menuElements setObject:[NSMutableArray array] forKey:[NSNumber numberWithInt:[self lastSectionID]]];
+    [self.menuElements setObject:[NSMutableArray array] forKey:[NSNumber numberWithInteger:[self lastSectionID]]];
 }
 
 - (NSInteger) lastSectionID {
@@ -98,7 +98,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 
 - (void) addMenuElementWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ inSection:(NSInteger)sectionId tagged:(NSInteger)tag {
     APMetaEntity *element = [[APMetaEntity alloc] initWithAction:action_ titleText:title badgeText:text icon:icon_ tag:tag];
-    NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInt:sectionId]];
+    NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInteger:sectionId]];
     [sectionElements addObject:element];
 }
 
@@ -108,7 +108,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 
 - (void) addMenuElementWithController:(UIViewController *)controller_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ inSection:(NSInteger)sectionId tagged:(NSInteger)tag {
     APMetaEntity *element = [[APMetaEntity alloc] initWithController:controller_ titleText:title badgeText:text icon:icon_ tag:tag];
-    NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInt:sectionId]];
+    NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInteger:sectionId]];
     [sectionElements addObject:element];
 }
 
@@ -143,13 +143,13 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     return nil;
 }
 
-- (float) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 28.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSMutableArray *elements = self.menuElements[[NSNumber numberWithInt:section]];
+    NSMutableArray *elements = self.menuElements[[NSNumber numberWithInteger:section]];
     return elements.count;
 }
 
@@ -182,7 +182,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 }
 
 - (APMetaEntity *) entityForIndexPath: (NSIndexPath *) indexPath {
-    NSMutableArray *elements = self.menuElements[[NSNumber numberWithInt:indexPath.section]];
+    NSMutableArray *elements = self.menuElements[[NSNumber numberWithInteger:indexPath.section]];
 
     
     return elements[indexPath.row];
