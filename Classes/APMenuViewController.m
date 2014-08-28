@@ -15,6 +15,7 @@
 #import "APStackViewControllerConfig.h"
 #import "APMenuTableCell.h"
 #import "APMenuTableHeader.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 
@@ -92,11 +93,18 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     return 0;
 }
 
-- (void) addMenuElementWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tagged:(NSInteger)tag{
+- (void)addMenuElementWithAction:(void (^)())action_ titleText:(NSString *)title subText:(NSString *)subText iconURLName:(NSString *)iconURLName inSection:(NSInteger)sectionId tagged:(NSInteger)tag {
+    APMetaEntity *element = [[APMetaEntity alloc] initWithAction:action_ titleText:title subText:subText iconURLName:iconURLName tag:tag];
+    NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInt:sectionId]];
+    [sectionElements addObject:element];
+    element.indexPath = [NSIndexPath indexPathForRow:sectionElements.count - 1 inSection:sectionId];
+}
+
+- (void)addMenuElementWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tagged:(NSInteger)tag{
     [self addMenuElementWithAction:action_ titleText:title badgeText:text icon:icon_ inSection:[self lastSectionID] tagged:tag];
 }
 
-- (void) addMenuElementWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ inSection:(NSInteger)sectionId tagged:(NSInteger)tag {
+- (void)addMenuElementWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ inSection:(NSInteger)sectionId tagged:(NSInteger)tag {
     APMetaEntity *element = [[APMetaEntity alloc] initWithAction:action_ titleText:title badgeText:text icon:icon_ tag:tag];
     NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInt:sectionId]];
     [sectionElements addObject:element];
@@ -161,6 +169,10 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     return 28.0f;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 70.0f;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSMutableArray *elements = self.menuElements[[NSNumber numberWithInt:section]];
@@ -188,7 +200,15 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     
     if (entity.icon) {
         [cell.imageView setImage:entity.icon];
+    } else if (entity.iconURLName) {
+        [cell.imageView setImageWithURL:[NSURL URLWithString:entity.iconURLName]
+                       placeholderImage:[UIImage imageNamed:@"icon_user"]
+                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                  
+                              }];
     }
+
+    [cell.detailTextLabel setText:entity.subText];
     
     [cell.textLabel setFont:[UIFont fontWithName:kCommonFontName size:kCommonFontSize]];
     [cell.textLabel setText:entity.titleText];
