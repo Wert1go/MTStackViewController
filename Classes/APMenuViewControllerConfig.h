@@ -31,8 +31,8 @@
 #define kFontColor			[UIColor blackColor]
 #define kFontShadowColor	[UIColor clearColor]
 
-#define kCommonFontName @"OpenSans-Light"
-#define kCommonFontNameBold @"OpenSans-Light"
+#define kCommonFontName @"HelveticaNeue-Light"
+#define kCommonFontNameBold @"HelveticaNeue-Light"
 
 #define kCommonFontSize 16.0f
 
