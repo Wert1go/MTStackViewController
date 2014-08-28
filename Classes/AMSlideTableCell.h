@@ -30,7 +30,6 @@
 @interface AMSlideTableCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel*	badge;
-@property (nonatomic, strong) UILabel*	subText;
 
 - (void)setBadgeText:(NSString*)text;
 

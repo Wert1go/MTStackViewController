@@ -12,6 +12,8 @@
 #define kBackground				[UIColor colorWithRed:32.0f/255.0f green:32.0f/255.0f blue:32.0f/255.0f alpha:1.0]
 #define kSelectionBackground	[UIColor colorWithRed:0.0f/255.0f green:133.0f/255.0f blue:187.0f/255.0f alpha:1.0]
 
+#define kSpaceTableToTop	22.0f
+
 // Table Cell
 #define kImagePadding		50
 #define kTextPadding		20

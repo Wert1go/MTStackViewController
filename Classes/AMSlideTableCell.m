@@ -34,9 +34,7 @@
 		
         self.badge = [[UILabel alloc] init];
         [self addSubview:self.badge];
-
-        self.subText = [[UILabel alloc] init];
-        [self addSubview:self.subText];
+        
         
         
         UIView* selection = [[UIView alloc] initWithFrame:self.frame];
@@ -59,19 +57,9 @@
 		self.imageView.frame = CGRectMake(height/2 - 30/2, height/2 - 30/2, 30, 30);
         self.imageView.contentMode = UIViewContentModeCenter;
 		self.textLabel.frame = CGRectMake(kImagePadding, 0, kSlideOutMenuWidth - kImagePadding, height);
-        self.subText.frame = CGRectMake(kImagePadding, height + 2, kSlideOutMenuWidth - kImagePadding, height);
 	} else {
 		self.textLabel.frame = CGRectMake(kTextPadding, 0, kSlideOutMenuWidth - kTextPadding, height);
-        self.subText.frame = CGRectMake(kTextPadding, height + 2, kSlideOutMenuWidth - kTextPadding, height);
 	}
-    
-	self.subText.font = kBadgeFont;
-	//self.badge.textColor = [UIColor colorWithRed:83.0f/255.0f green:83.0f/255.0f blue:83.0f/255.0f alpha:1.0f];
-    self.subText.textColor = kCellBadgeColor;
-	self.subText.adjustsFontSizeToFitWidth = YES;
-	self.subText.textAlignment = NSTextAlignmentCenter;
-    self.subText.backgroundColor = [UIColor clearColor];
-
     
     CGRect badgeFrame = CGRectMake(self.frame.size.width - 31, height/2 - 24/2, 31, 24);
     self.badge.frame = badgeFrame;
@@ -83,8 +71,6 @@
 	self.badge.adjustsFontSizeToFitWidth = YES;
 	self.badge.textAlignment = NSTextAlignmentCenter;
     self.badge.backgroundColor = [UIColor clearColor];
-    
-
 }
 
 - (void)setBadgeText:(NSString*)text
@@ -96,17 +82,6 @@
 		self.badge.hidden = NO;
 	}
 }
-
-//- (void)setSuText:(NSString*)text
-//{
-//	if (!text || [text isEqualToString:@""] || [text isEqualToString:@"0"]) {
-//		self.badge.hidden = YES;
-//	} else {
-//		self.badge.text = text;
-//		self.badge.hidden = NO;
-//	}
-//}
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

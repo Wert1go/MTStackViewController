@@ -14,28 +14,29 @@
 @synthesize titleText;
 @synthesize badgeText;
 @synthesize icon;
-@synthesize iconURLName;
 @synthesize action;
 @synthesize tag;
-
-@synthesize subText;
+@synthesize iconURLString;
 @synthesize isActionType;
+@synthesize subText;
 
-- (id)initWithAction:(void (^)())action_ titleText:(NSString *)title subText:(NSString *)subText_ iconURLName:(NSString *)iconURLName_ tag:(NSInteger)tag_ {
+
+- (id) initWithAction:(void (^)())action_ titleText:(NSString *)title subText:(NSString *)subText_ iconURLString:(NSString *)iconURLString_ tag:(NSInteger)tag_ {
     self = [super init];
     if (self) {
         self.isActionType = YES;
         self.action = action_;
         self.titleText = title;
         self.subText = subText_;
-        self.iconURLName = iconURLName_;
+        self.iconURLString = iconURLString_;
         self.tag = tag_;
     }
     
     return self;
 }
 
-- (id)initWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tag:(NSInteger)tag_ {
+
+- (id) initWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tag:(NSInteger)tag_ {
     self = [super init];
     if (self) {
         self.isActionType = YES;
@@ -49,7 +50,7 @@
     return self;
 }
 
-- (id)initWithController:(UIViewController *)controller_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tag:(NSInteger)tag_{
+- (id) initWithController:(UIViewController *)controller_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tag:(NSInteger)tag_{
     self = [super init];
     if (self) {
         self.isActionType = NO;
