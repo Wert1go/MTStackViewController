@@ -15,8 +15,10 @@
 #import "APStackViewControllerConfig.h"
 #import "APMenuTableCell.h"
 #import "APMenuTableHeader.h"
+#import "KPSlideOutMenuViewController.h"
 
 static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
+
 
 @interface APMenuViewController ()
 
@@ -40,8 +42,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 	self.tableView.backgroundColor = kBackground;
@@ -53,7 +54,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.tableView.frame = CGRectMake(0, 0, kSlideOutMenuWidth, self.tableView.frame.size.height);
+    self.tableView.frame = CGRectMake(0, kSpaceTableToTop, kSlideOutMenuWidth, self.tableView.frame.size.height - kSpaceTableToTop);
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     [self.tableView reloadData];
     
@@ -62,6 +63,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
         [self setInitialViewController];
         self.didSetInitialViewController = YES;
     }
+    self.view.superview.backgroundColor = [UIColor grayColor:14.0f];
 }
 
 - (void) configureMenu {
@@ -70,7 +72,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 
 - (void)setInitialViewController
 {
-    [self tableView:[self tableView] didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    [self tableView:[self tableView] didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:PlanningSection]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,6 +92,20 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     }
     
     return 0;
+}
+
+
+- (void) addMenuElementWithAction:(void (^)())action_
+                        titleText:(NSString *)title
+                          subText:(NSString *)subText
+                    iconURLString:(NSString *)iconURLString
+                        inSection:(NSInteger)sectionId
+                           tagged:(NSInteger)tag {
+    
+    APMetaEntity *element = [[APMetaEntity alloc] initWithAction:action_ titleText:title subText:subText iconURLString:iconURLString tag:tag];
+    NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInt:sectionId]];
+    [sectionElements addObject:element];
+    element.indexPath = [NSIndexPath indexPathForRow:sectionElements.count - 1 inSection:sectionId];
 }
 
 - (void) addMenuElementWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tagged:(NSInteger)tag{

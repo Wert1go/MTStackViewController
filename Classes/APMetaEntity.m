@@ -16,8 +16,25 @@
 @synthesize icon;
 @synthesize action;
 @synthesize tag;
-
+@synthesize iconURLString;
 @synthesize isActionType;
+@synthesize subText;
+
+
+- (id) initWithAction:(void (^)())action_ titleText:(NSString *)title subText:(NSString *)subText_ iconURLString:(NSString *)iconURLString_ tag:(NSInteger)tag_ {
+    self = [super init];
+    if (self) {
+        self.isActionType = YES;
+        self.action = action_;
+        self.titleText = title;
+        self.subText = subText_;
+        self.iconURLString = iconURLString_;
+        self.tag = tag_;
+    }
+    
+    return self;
+}
+
 
 - (id) initWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tag:(NSInteger)tag_ {
     self = [super init];
