@@ -59,8 +59,8 @@
                                               w_self.avatarImageView.layer.cornerRadius = w_self.avatarImageView.frame.size.width / 2;
                                               w_self.avatarImageView.clipsToBounds = YES;
                                           }
+                                          w_self.avatarImageView.contentMode = UIViewContentModeScaleAspectFill;
                                       }
-                                      
                                   }];
     } else {
         self.avatarImageView.image = avatarPlaceholder;
