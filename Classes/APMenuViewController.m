@@ -26,6 +26,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 @property (nonatomic, strong) NSMutableDictionary *menuElements;
 
 @property (nonatomic, assign) BOOL didSetInitialViewController;
+@property (nonatomic, assign) BOOL minusStatusBarHeight;
 
 @end
 
@@ -47,6 +48,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 	self.tableView.backgroundColor = kBackground;
 	self.tableView.scrollsToTop = NO;
+    self.minusStatusBarHeight = YES;
     
     [self configureMenu];
 }
@@ -54,7 +56,10 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.tableView.frame = CGRectMake(0, kSpaceTableToTop, kSlideOutMenuWidth, self.tableView.frame.size.height - kSpaceTableToTop);
+    if (self.minusStatusBarHeight) {
+        self.tableView.frame = CGRectMake(0, kSpaceTableToTop, kSlideOutMenuWidth, self.tableView.frame.size.height - kSpaceTableToTop);
+        self.minusStatusBarHeight = NO;
+    }
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     [self.tableView reloadData];
     
