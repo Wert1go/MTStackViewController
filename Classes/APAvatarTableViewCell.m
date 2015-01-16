@@ -42,9 +42,9 @@
     if (url && url.length > 0) {
         NSURL *imageUrl= [[NSURL alloc] initWithString:url];
         __typeof(self) __weak w_self = self;
-        [self.avatarImageView setImageWithURL:imageUrl
+        [self.avatarImageView sd_setImageWithURL:imageUrl
                            placeholderImage:avatarPlaceholder
-                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                       if (image) {
                                           if (cacheType == SDImageCacheTypeNone) {
                                               w_self.avatarImageView.alpha = 0.0;
