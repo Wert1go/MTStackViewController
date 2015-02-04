@@ -119,7 +119,7 @@ static NSString *const MTTableViewCellIdentifier = @"MTTableViewCell";
     return nil;
 }
 
-- (float) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 28.0f;
 }
 

@@ -178,7 +178,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     return nil;
 }
 
-- (float) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 28.0f;
 }
 
