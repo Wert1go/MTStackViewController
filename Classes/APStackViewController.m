@@ -43,7 +43,7 @@
 
 - (UIBarButtonItem *)getMenuButtonInState:(enum ButtonState) state {
 
-    UIImage* image = [UIImage imageNamed: state == INACTIVE ? @"slideout_button_inactive.png" : @"slideout_button_active.png"];
+    UIImage* image = [UIImage imageNamed: state == INACTIVE ? @"slideout_button_inactive" : @"slideout_button_active"];
 
     
     AMNavigationButton *menuButton = [AMNavigationButton buttonWithType:UIButtonTypeCustom];
