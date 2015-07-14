@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *titleText;
 @property (nonatomic, strong) NSString *badgeText;
 @property (nonatomic, strong) UIImage *icon;
+@property (nonatomic, strong) UIImage *iconHighlighted;
 @property (nonatomic, strong) NSString *iconURLString;
 @property (nonatomic, strong) NSString *subText;
 @property (nonatomic, assign) NSInteger tag;
@@ -27,7 +28,7 @@
 - (id) initWithAction:(void (^)())action_ titleText:(NSString *)title subText:(NSString *)subText_ iconURLString:(NSString *)iconURLString_ tag:(NSInteger)tag_;
 
 - (id) initWithController: (UIViewController *) controller_ titleText: (NSString *) title badgeText: (NSString *) text icon: (UIImage *) icon_ tag: (NSInteger) tag_;
+- (id)initWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ iconHighlighted:(UIImage *)iconHighlighted_ tag:(NSInteger)tag_;
 
-- (id) initWithAction: (void (^)()) action_ titleText: (NSString *) title badgeText: (NSString *) text icon: (UIImage *) icon_ tag: (NSInteger) tag_;
-
+- (id) initWithController:(UIViewController *)controller_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ iconHighlighted:(UIImage *)iconHighlighted_ tag:(NSInteger)tag_;
 @end

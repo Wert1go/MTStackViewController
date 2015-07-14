@@ -36,7 +36,7 @@
 }
 
 
-- (id) initWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tag:(NSInteger)tag_ {
+- (id)initWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ iconHighlighted:(UIImage *)iconHighlighted_ tag:(NSInteger)tag_ {
     self = [super init];
     if (self) {
         self.isActionType = YES;
@@ -44,13 +44,14 @@
         self.titleText = title;
         self.badgeText = text;
         self.icon = icon_;
+        self.iconHighlighted = iconHighlighted_;
         self.tag = tag_;
     }
     
     return self;
 }
 
-- (id) initWithController:(UIViewController *)controller_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tag:(NSInteger)tag_{
+- (id) initWithController:(UIViewController *)controller_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ iconHighlighted:(UIImage *)iconHighlighted_ tag:(NSInteger)tag_ {
     self = [super init];
     if (self) {
         self.isActionType = NO;
@@ -58,6 +59,7 @@
         self.titleText = title;
         self.badgeText = text;
         self.icon = icon_;
+        self.iconHighlighted = iconHighlighted_;
         self.tag = tag_;
     }
     return self;

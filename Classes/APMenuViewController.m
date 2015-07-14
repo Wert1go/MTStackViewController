@@ -68,7 +68,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
         [self setInitialViewController];
         self.didSetInitialViewController = YES;
     }
-    self.view.superview.backgroundColor = [UIColor grayColor:14.0f];
+    self.view.superview.backgroundColor = kTopSpaceBackground;
 }
 
 - (void) configureMenu {
@@ -88,7 +88,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
 
 - (void) addMenuSectionWithTitle: (NSString *) title{
     [self.sections addObject:title];
-    [self.menuElements setObject:[NSMutableArray array] forKey:[NSNumber numberWithInt:[self lastSectionID]]];
+    [self.menuElements setObject:[NSMutableArray array] forKey:[NSNumber numberWithInteger:[self lastSectionID]]];
 }
 
 - (NSInteger) lastSectionID {
@@ -99,7 +99,6 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     return 0;
 }
 
-
 - (void) addMenuElementWithAction:(void (^)())action_
                         titleText:(NSString *)title
                           subText:(NSString *)subText
@@ -108,19 +107,25 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
                            tagged:(NSInteger)tag {
     
     APMetaEntity *element = [[APMetaEntity alloc] initWithAction:action_ titleText:title subText:subText iconURLString:iconURLString tag:tag];
-    NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInt:sectionId]];
+    NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInteger:sectionId]];
     [sectionElements addObject:element];
     element.indexPath = [NSIndexPath indexPathForRow:sectionElements.count - 1 inSection:sectionId];
+
+
 }
 
-- (void) addMenuElementWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ tagged:(NSInteger)tag{
-    [self addMenuElementWithAction:action_ titleText:title badgeText:text icon:icon_ inSection:[self lastSectionID] tagged:tag];
-}
-
-- (void) addMenuElementWithAction:(void (^)())action_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ inSection:(NSInteger)sectionId tagged:(NSInteger)tag {
-    APMetaEntity *element = [[APMetaEntity alloc] initWithAction:action_ titleText:title badgeText:text icon:icon_ tag:tag];
-    NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInt:sectionId]];
+- (void)addMenuElementWithAction:(void (^)())action_
+                       titleText:(NSString *)title
+                       badgeText:(NSString *)text
+                            icon:(UIImage *)icon_
+                 iconHighlighted:(UIImage *)iconHighlighted_
+                       inSection:(NSInteger)sectionId
+                          tagged:(NSInteger)tag {
+    APMetaEntity *element = [[APMetaEntity alloc] initWithAction:action_ titleText:title badgeText:text icon:icon_ iconHighlighted:iconHighlighted_ tag:tag];
+    
+    NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInteger:sectionId]];
     [sectionElements addObject:element];
+    
     element.indexPath = [NSIndexPath indexPathForRow:sectionElements.count - 1 inSection:sectionId];
 }
 
@@ -128,9 +133,25 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     [self addMenuElementWithController:controller_ titleText:title badgeText:text icon:icon_ inSection:[self lastSectionID]tagged:tag];
 }
 
+- (void)addMenuElementWithController:(UIViewController *)controller_
+                           titleText:(NSString *)title
+                           badgeText:(NSString *)text
+                                icon:(UIImage *)icon_
+                     iconHighlighted:(UIImage *)iconHighlighted_
+                           inSection:(NSInteger)sectionId
+                              tagged:(NSInteger)tag {
+    APMetaEntity *element = [[APMetaEntity alloc] initWithController:controller_ titleText:title badgeText:text icon:icon_ iconHighlighted:iconHighlighted_ tag:tag];
+
+    NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInteger:sectionId]];
+    [sectionElements addObject:element];
+    
+    element.indexPath = [NSIndexPath indexPathForRow:sectionElements.count - 1 inSection:sectionId];
+
+}
+
 - (void) addMenuElementWithController:(UIViewController *)controller_ titleText:(NSString *)title badgeText:(NSString *)text icon:(UIImage *)icon_ inSection:(NSInteger)sectionId tagged:(NSInteger)tag {
     APMetaEntity *element = [[APMetaEntity alloc] initWithController:controller_ titleText:title badgeText:text icon:icon_ tag:tag];
-    NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInt:sectionId]];
+    NSMutableArray *sectionElements = self.menuElements[[NSNumber numberWithInteger:sectionId]];
     [sectionElements addObject:element];
     
     element.indexPath = [NSIndexPath indexPathForRow:sectionElements.count - 1 inSection:sectionId];
@@ -209,6 +230,10 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     
     if (entity.icon) {
         [cell.imageView setImage:entity.icon];
+    }
+
+    if (entity.iconHighlighted) {
+        [cell.imageView setHighlightedImage:entity.iconHighlighted];
     }
     
     [cell.textLabel setFont:[UIFont fontWithName:kCommonFontName size:kCommonFontSize]];

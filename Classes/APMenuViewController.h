@@ -26,8 +26,23 @@
                     iconURLString:(NSString *)iconURLString
                         inSection:(NSInteger)sectionId
                            tagged:(NSInteger)tag;
-- (void) addMenuElementWithAction: (void (^)()) action_ titleText: (NSString *) title badgeText: (NSString *) text icon: (UIImage *) icon_ tagged: (NSInteger) tag;
-- (void) addMenuElementWithAction: (void (^)()) action_ titleText: (NSString *) title badgeText: (NSString *) text icon: (UIImage *) icon_ inSection: (NSInteger) sectionId tagged: (NSInteger) tag;
+
+- (void)addMenuElementWithAction:(void (^)())action_
+                       titleText:(NSString *)title
+                       badgeText:(NSString *)text
+                            icon:(UIImage *)icon_
+                 iconHighlighted:(UIImage *)iconHighlighted_
+                       inSection:(NSInteger)sectionId
+                          tagged:(NSInteger)tag;
+
+- (void) addMenuElementWithController:(UIViewController *)controller_
+                            titleText:(NSString *)title
+                            badgeText:(NSString *)text
+                                 icon:(UIImage *)icon_
+                      iconHighlighted:(UIImage *)iconHighlighted_
+                            inSection:(NSInteger)sectionId
+                               tagged:(NSInteger)tag;
+
 - (void)configureCell:(APMenuTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (APMetaEntity *) entityForIndexPath: (NSIndexPath *) indexPath;
 @end

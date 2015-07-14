@@ -8,6 +8,8 @@
 
 #import "APAvatarTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+//#import "Kinoplan-Swift.h"
+#import "APMenuViewControllerConfig.h"
 
 @implementation APAvatarTableViewCell
 
@@ -16,7 +18,7 @@
     if (self) {
         
         UIView* selection = [[UIView alloc] initWithFrame:self.contentView.frame];
-        [selection setBackgroundColor:[UIColor selectedColor]];
+        [selection setBackgroundColor:kSelectionBackground];
         
         self.selectedBackgroundView = selection;
         
@@ -24,10 +26,10 @@
     return self;
 }
 
-- (void)awakeFromNib
-{
-    // Initialization code
-}
+//- (void)awakeFromNib
+//{
+//    // Initialization code
+//}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
