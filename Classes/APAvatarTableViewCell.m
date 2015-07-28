@@ -39,7 +39,7 @@
 }
 
 - (void)setAvatarWithURLString:(NSString *)url {
-    UIImage *avatarPlaceholder = [UIImage imageNamed:@"contacts_icon.png"];
+    UIImage *avatarPlaceholder = [UIImage imageNamed:@"user_placeholder_gray"];
     
     if (url && url.length > 0) {
         NSURL *imageUrl= [[NSURL alloc] initWithString:url];

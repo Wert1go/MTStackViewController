@@ -61,7 +61,7 @@
 		self.textLabel.frame = CGRectMake(kTextPadding, 0, kSlideOutMenuWidth - kTextPadding, height);
 	}
     
-    CGRect badgeFrame = CGRectMake(self.frame.size.width - 31, height/2 - 24/2, 31, 24);
+    CGRect badgeFrame = CGRectMake(self.frame.size.width - 42, height/2 - 24/2, 31, 24);
     self.badge.frame = badgeFrame;
 	
 	// Set badge properties

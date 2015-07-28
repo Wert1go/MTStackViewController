@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contacts_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="K2q-9K-68d">
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_placeholder_gray" translatesAutoresizingMaskIntoConstraints="NO" id="K2q-9K-68d">
                         <rect key="frame" x="10" y="19" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="Hr6-7z-7Fv"/>
@@ -53,7 +53,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="contacts_icon.png" width="50" height="50"/>
+        <image name="user_placeholder_gray" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
