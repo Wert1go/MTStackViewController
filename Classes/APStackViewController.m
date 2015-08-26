@@ -50,8 +50,8 @@
 
 - (UIBarButtonItem *) getMenuButtonInState:(enum ButtonState) state {
     
-    UIImage* image = [UIImage imageNamed: state == INACTIVE ? @"slideout_button_inactive.png" : @"slideout_button_active.png"];
-    CGRect frame = CGRectMake(0, 0, 44, 44);
+    UIImage* image = [UIImage imageNamed: state == INACTIVE ? @"slideout_button_inactive" : @"slideout_button_active"];
+    CGRect frame = CGRectMake(0, 0, 24, 15);
     UIButton* someButton = [[UIButton alloc] initWithFrame:frame];
     [someButton addTarget:self action:@selector(toggleLeftViewController) forControlEvents:UIControlEventTouchUpInside];
     [someButton setBackgroundImage:image forState:UIControlStateNormal];
