@@ -57,9 +57,9 @@
 
     [menuButton setImage:image forState:UIControlStateNormal];
     [menuButton.imageView setContentMode:UIViewContentModeTopLeft];
-//    CGFloat xEdge = (isIOS7)?((isIpad)?(-25):(-20)):((isIpad)?(-30):(-20));
+    CGFloat xEdge = (isIOS8)?((isIpad)?(-25):(-20)):((isIpad)?(-15):(-20));
     
-//    menuButton.imageEdgeInsets = UIEdgeInsetsMake(0, xEdge, 0, 0);
+    menuButton.imageEdgeInsets = UIEdgeInsetsMake(0, xEdge, 0, 0);
 
     
 //    //размеры для iOS 6
