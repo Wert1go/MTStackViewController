@@ -25,7 +25,7 @@
     // NSLog(@"!2flksdfngl;sdf");
     UIEdgeInsets insets;
     if (/*IF_ITS_A_LEFT_BUTTON*/ self.isLeftItem) {
-        insets = UIEdgeInsetsMake(0, (isIOS7)?15.0f:4.0f, 0, 0);
+        insets = UIEdgeInsetsMake(0, 15.0f, 0, 0);
     }
     else { // IF_ITS_A_RIGHT_BUTTON
 //        insets = UIEdgeInsetsMake(0, 0, 0, 9.0f);
