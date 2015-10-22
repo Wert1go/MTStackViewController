@@ -192,7 +192,8 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
     if (title) {
         APMenuTableHeader *header = [[APMenuTableHeader alloc] init];
         header.titleLabel.text = [title uppercaseString];
-        [header.titleLabel setFont:[UIFont fontWithName:kCommonFontNameBold size:14.0f]];
+        [header.titleLabel setFont:[UIFont boldSystemFontOfSize:14.0f]];
+        
         return header;
     }
     
@@ -236,7 +237,7 @@ static NSString *const APTableViewCellIdentifier = @"APTableViewCellIdentifier";
         [cell.imageView setHighlightedImage:entity.iconHighlighted];
     }
     
-    [cell.textLabel setFont:[UIFont fontWithName:kCommonFontName size:kCommonFontSize]];
+    [cell.textLabel setFont:[UIFont systemFontOfSize:kCommonFontSize]];
     [cell.textLabel setText:entity.titleText];
     [cell setBadgeText:entity.badgeText];
 }

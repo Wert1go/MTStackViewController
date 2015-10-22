@@ -10,8 +10,7 @@
 #import "APMenuViewControllerConfig.h"
 #import "APStackViewControllerConfig.h"
 
-#define kBadgeFont		[UIFont fontWithName:@"HelveticaNeue" size:18]
-
+#define kBadgeFont		[UIFont systemFontOfSize:18]
 @interface AMSlideTableCell ()
 
 @property (nonatomic, strong) UIImageView *labelBackground;
@@ -30,12 +29,10 @@
 		self.textLabel.textColor = kCellFontColor;
 		self.textLabel.shadowOffset = CGSizeMake(0, 1);
 		self.textLabel.shadowColor = kFontShadowColor;
-		self.textLabel.font = [UIFont fontWithName:kCommonFontName size:kCommonFontSize];
-		
+        self.textLabel.font = [UIFont systemFontOfSize:kCommonFontSize];
+        
         self.badge = [[UILabel alloc] init];
         [self addSubview:self.badge];
-        
-        
         
         UIView* selection = [[UIView alloc] initWithFrame:self.frame];
         [selection setBackgroundColor:kSelectionBackground];
